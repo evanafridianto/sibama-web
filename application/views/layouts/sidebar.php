@@ -16,8 +16,8 @@
                 </li>
                 <li class="menu-title">Databases</li>
                 <li>
-                    <a href="javascript: void(0);" aria-expanded="true"><i class="fi-server"></i> <span>Master
-                            Data</span> <span class="menu-arrow"></span></a>
+                    <a href="javascript: void(0);" aria-expanded="true"><i class="fi-server"></i> <span>Data
+                            Master</span> <span class="menu-arrow"></span></a>
                     <ul class="nav-second-level nav" aria-expanded="true">
                         <li><a href="<?=site_url('admin/drainase')?>">Data Drainase</a></li>
                         <li><a href="admin-sweet-alert.html">Data Jalan</a></li>
@@ -26,7 +26,8 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="javascript: void(0);" aria-expanded="true"><i class="fi-menu"></i> <span>Kategori</span>
+                    <a href="javascript: void(0);" aria-expanded="true"><i class="fi-menu"></i> <span>Data
+                            Kategori</span>
                         <span class="menu-arrow"></span></a>
                     <ul class="nav-second-level nav" aria-expanded="true">
                         <li><a href="admin-grid.html">Tipe Saluran</a></li>

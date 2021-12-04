@@ -22,6 +22,9 @@
     <link href="<?=base_url()?>assets/plugins/sweet-alert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
     <!-- Datepicker  -->
     <link href="<?=base_url()?>assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <script src="<?=base_url()?>assets/plugins/select2/js/select2.min.js" type="text/javascript"></script>
+    <link href="<?=base_url()?>assets/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+
     <!-- App css -->
     <link href="<?=base_url()?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="<?=base_url()?>assets/css/core.css" rel="stylesheet" type="text/css" />
@@ -32,5 +35,9 @@
     <link href="<?=base_url()?>assets/css/responsive.css" rel="stylesheet" type="text/css" />
 
     <script src="<?=base_url()?>assets/js/modernizr.min.js"></script>
+    <!-- Leaflet  -->
+    <script src="<?=base_url()?>assets/leafletdraw/libs/leaflet-src.js"></script>
+    <script src="<?=base_url()?>assets/leafletdraw/leaflet.ajax.js"></script>
+
 
 </head>

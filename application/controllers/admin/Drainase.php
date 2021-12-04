@@ -22,9 +22,8 @@ class Drainase extends CI_Controller {
 			'penanganan' => $this->master->select_penanganan(),
 		];
 		$data['content']= $this->load->view('admin/masterdata/drainase_view', $datacontent, true);
-		// $data['form_peta']= $this->load->view('admin/masterdata/form_peta', $datacontent,true);
 		$this->load->view('layouts/html', $data);
-		$this->load->view('admin/masterdata/form_peta');
+		$this->load->view('admin/masterdata/drainase_crud');
 	}
 
 	public function show_all()
@@ -53,9 +52,6 @@ class Drainase extends CI_Controller {
 			echo json_encode(array('data' => 0));
 		}
 	}
-
-    
-
 
 	public function add()
 	{
