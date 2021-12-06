@@ -12,7 +12,8 @@
                 </li>
                 <li>
                     <a href="<?=site_url()?>admin/peta" aria-expanded="true"><i class="fi-map"></i><span
-                            class="badge badge-success pull-right"></span> <span> Peta Drainase </span></a>
+                            class="badge badge-success pull-right" id="peta-drainase"></span> <span> Peta Drainase
+                        </span></a>
                 </li>
                 <li class="menu-title">Databases</li>
                 <li>

@@ -104,7 +104,7 @@
                             <div class="form-group">
                                 <label>Slope</label>
                                 <input type="text" class="form-control" name="slope" required=""
-                                    placeholder="Masukkan Slope">
+                                    placeholder="Masukkan Slope (m)">
                                 <span class="text-danger"></span>
                             </div>
                         </div>
@@ -311,6 +311,7 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+
 <!--  Modal content for the above example -->
 <div id="view-modal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
     aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
@@ -482,7 +483,7 @@ $(document).ready(function() {
     $('#map-view').on('hidden.bs.collapse', function() {
         $('#refreshBtn').html('<i class="fa fa-map-pin m-r-5"></i>Pilih Titik Koordinat');
     })
-    //set input/select event when change value, remove class error and remove text text-danger 
+    // set input / select event when change value, remove text text - danger
     $("input[type=text]").change(function() {
         $(this).next().empty();
     });
@@ -594,14 +595,19 @@ function edit_drainase(id) {
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {
-            Swal.fire({
-                timer: 1500,
-                timerProgressBar: true,
+            swal({
                 title: 'Gagal!',
-                html: 'Proses gagal!',
-                icon: 'error',
+                text: 'Proses gagal!',
+                type: 'error',
                 showConfirmButton: false,
-            });
+                timer: 1500
+            }).then(
+                function() {},
+                // handling the promise rejection
+                function(dismiss) {
+                    if (dismiss === 'timer') {}
+                }
+            )
         }
     });
 }
@@ -878,7 +884,7 @@ $('#map-view').on('shown.bs.collapse', function(e) {
     var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         osm = L.tileLayer(osmUrl, {
-            maxZoom: 18,
+            maxZoom: 19,
             attribution: osmAttrib
         }),
 

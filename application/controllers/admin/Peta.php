@@ -65,6 +65,13 @@ class Peta extends CI_Controller {
 			$data['status'] = FALSE;
 		}
 
+		if ($this->input->post('r24')!=='' && !preg_match("/^[+-]?(\d*\.\d+([eE]?[+-]?\d+)?|\d+[eE][+-]?\d+)$/", $this->input->post('r24')))
+        {
+        $data['inputerror'][] = 'r24';
+        $data['error_string'][] ='R24 type in decimal format';
+        $data['status'] = FALSE;
+        }
+
 		if($data['status'] === FALSE)
 		{
 			echo json_encode($data);

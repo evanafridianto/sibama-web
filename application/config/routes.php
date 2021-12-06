@@ -55,3 +55,12 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['drainase/(:any)'] = 'Drainase/$1';
 $route['drainase/(:any)/(:any)'] = 'Drainase/$1/$2';
+
+$route['jalan/(:any)'] = 'Jalan/$1';
+$route['jalan/(:any)/(:any)'] = 'Jalan/$1/$2';
+
+$route['kelurahan/(:any)'] = 'Kelurahan/$1';
+$route['kelurahan/(:any)/(:any)'] = 'Kelurahan/$1/$2';
+
+$route['kecamatan/(:any)'] = 'Kecamatan/$1';
+$route['kecamatan/(:any)/(:any)'] = 'Kecamatan/$1/$2';

@@ -240,17 +240,17 @@ class Drainase extends CI_Controller {
         $data['status'] = FALSE;
         }
         
-		if($this->input->post('sta')=='')
-        {
-        $data['inputerror'][] = 'sta';
-        $data['error_string'][] ='STA is required';
-        $data['status'] = FALSE;
-        }
-        
 		if($this->input->post('lat_awal')=='')
         {
         $data['inputerror'][] = 'lat_awal';
         $data['error_string'][] ='Latitude Awal is required';
+        $data['status'] = FALSE;
+        }
+
+        if ($this->input->post('lat_awal')!=='' && !preg_match("/^[+-]?(\d*\.\d+([eE]?[+-]?\d+)?|\d+[eE][+-]?\d+)$/",$this->input->post('lat_awal')))
+        {
+        $data['inputerror'][] = 'lat_awal';
+        $data['error_string'][] ='Latitude Awal type in decimal format';
         $data['status'] = FALSE;
         }
         
@@ -258,6 +258,13 @@ class Drainase extends CI_Controller {
         {
         $data['inputerror'][] = 'long_awal';
         $data['error_string'][] ='Longitude Awal is required';
+        $data['status'] = FALSE;
+        }
+
+        if ($this->input->post('long_awal')!==''&& !preg_match("/^[+-]?(\d*\.\d+([eE]?[+-]?\d+)?|\d+[eE][+-]?\d+)$/",$this->input->post('long_awal')))
+        {
+        $data['inputerror'][] = 'long_awal';
+        $data['error_string'][] ='Longitude Awal type in decimal format';
         $data['status'] = FALSE;
         }
         
@@ -268,10 +275,30 @@ class Drainase extends CI_Controller {
         $data['status'] = FALSE;
         }
         
+        if ($this->input->post('lat_akhir')!==''&& !preg_match("/^[+-]?(\d*\.\d+([eE]?[+-]?\d+)?|\d+[eE][+-]?\d+)$/",$this->input->post('lat_akhir')))
+        {
+        $data['inputerror'][] = 'lat_akhir';
+        $data['error_string'][] ='Latitude Akhir type in decimal format';
+        $data['status'] = FALSE;
+        }
+        
 		if($this->input->post('long_akhir')=='')
         {
         $data['inputerror'][] = 'long_akhir';
         $data['error_string'][] ='Longitude Akhir is required';
+        $data['status'] = FALSE;
+        }
+        if ($this->input->post('long_akhir')!==''&& !preg_match("/^[+-]?(\d*\.\d+([eE]?[+-]?\d+)?|\d+[eE][+-]?\d+)$/",$this->input->post('long_akhir')))
+        {
+        $data['inputerror'][] = 'long_akhir';
+        $data['error_string'][] ='Longitude Akhir type in decimal format';
+        $data['status'] = FALSE;
+        }
+        
+        if($this->input->post('sta')=='')
+        {
+        $data['inputerror'][] = 'sta';
+        $data['error_string'][] ='STA is required';
         $data['status'] = FALSE;
         }
         
@@ -281,46 +308,94 @@ class Drainase extends CI_Controller {
         $data['error_string'][] ='Panjang Saluran is required';
         $data['status'] = FALSE;
         }
-        
-		if($this->input->post('slope')=='')
+
+        if ($this->input->post('panjang_saluran')!=='' && !preg_match("/^[+-]?(\d*\.\d+([eE]?[+-]?\d+)?|\d+[eE][+-]?\d+)$/", $this->input->post('panjang_saluran')))
+        {
+        $data['inputerror'][] = 'panjang_saluran';
+        $data['error_string'][] ='Panjang Saluran type in decimal format';
+        $data['status'] = FALSE;
+        }
+
+
+        if($this->input->post('slope')=='')
         {
         $data['inputerror'][] = 'slope';
         $data['error_string'][] ='Slope is required';
         $data['status'] = FALSE;
         }
         
-		if($this->input->post('catchment_area')=='')
+        if ($this->input->post('slope')!==''&& !preg_match("/^[+-]?(\d*\.\d+([eE]?[+-]?\d+)?|\d+[eE][+-]?\d+)$/",$this->input->post('slope')))
+        {
+        $data['inputerror'][] = 'slope';
+        $data['error_string'][] ='Slope type in decimal format';
+        $data['status'] = FALSE;
+        }
+
+        if($this->input->post('catchment_area')=='')
         {
         $data['inputerror'][] = 'catchment_area';
-        $data['error_string'][] ='Catchment Area is required';
+        $data['error_string'][] ='Catchment Area type in decimal format';
         $data['status'] = FALSE;
         }
         
-		if($this->input->post('tinggi_saluran')=='')
+		if ($this->input->post('catchment_area')!==''&& !preg_match("/^[+-]?(\d*\.\d+([eE]?[+-]?\d+)?|\d+[eE][+-]?\d+)$/",$this->input->post('catchment_area')))
+        {
+        $data['inputerror'][] = 'catchment_area';
+        $data['error_string'][] ='Catchment Area are type in decimal format';
+        $data['status'] = FALSE;
+        }
+        
+        if($this->input->post('tinggi_saluran')=='')
         {
         $data['inputerror'][] = 'tinggi_saluran';
         $data['error_string'][] ='Tinggi Saluran is required';
         $data['status'] = FALSE;
         }
         
-		if($this->input->post('lebar_saluran')=='')
+		if ($this->input->post('tinggi_saluran')!==''&& !preg_match("/^[+-]?(\d*\.\d+([eE]?[+-]?\d+)?|\d+[eE][+-]?\d+)$/",$this->input->post('tinggi_saluran')))
+        {
+        $data['inputerror'][] = 'tinggi_saluran';
+        $data['error_string'][] ='Tinggi Saluran type in decimal format';
+        $data['status'] = FALSE;
+        }
+        
+        if($this->input->post('lebar_saluran')=='')
         {
         $data['inputerror'][] = 'lebar_saluran';
         $data['error_string'][] ='Lebar Saluran is required';
         $data['status'] = FALSE;
         }
+		if ($this->input->post('lebar_saluran')!==''&& !preg_match("/^[+-]?(\d*\.\d+([eE]?[+-]?\d+)?|\d+[eE][+-]?\d+)$/",$this->input->post('lebar_saluran')))
+        {
+        $data['inputerror'][] = 'lebar_saluran';
+        $data['error_string'][] ='Lebar Saluran type in decimal format';
+        $data['status'] = FALSE;
+        }
         
-		if($this->input->post('luas_penampung')=='')
+        if($this->input->post('luas_penampung')=='')
         {
         $data['inputerror'][] = 'luas_penampung';
         $data['error_string'][] ='Luas Penampung is required';
         $data['status'] = FALSE;
         }
-        
-		if($this->input->post('keliling_penampung')=='')
+		if ($this->input->post('luas_penampung')!==''&& !preg_match("/^[+-]?(\d*\.\d+([eE]?[+-]?\d+)?|\d+[eE][+-]?\d+)$/",$this->input->post('luas_penampung')))
+        {
+        $data['inputerror'][] = 'luas_penampung';
+        $data['error_string'][] ='Luas Penampung type in decimal format';
+        $data['status'] = FALSE;
+        }
+
+        if($this->input->post('keliling_penampung')=='')
         {
         $data['inputerror'][] = 'keliling_penampung';
         $data['error_string'][] ='Keliling Penampung is required';
+        $data['status'] = FALSE;
+        }
+        
+		if ($this->input->post('keliling_penampung')!==''&& !preg_match("/^[+-]?(\d*\.\d+([eE]?[+-]?\d+)?|\d+[eE][+-]?\d+)$/",$this->input->post('keliling_penampung')))
+        {
+        $data['inputerror'][] = 'keliling_penampung';
+        $data['error_string'][] ='Keliling Penampung type in decimal format';
         $data['status'] = FALSE;
         }
         

@@ -4,10 +4,14 @@
 <!-- Sweet Alert -->
 <link href="<?=base_url()?>assets/plugins/sweet-alert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
 <script src="<?=base_url()?>assets/plugins/sweet-alert2/sweetalert2.min.js"></script>
-<script src="<?=base_url()?>assets/plugins/autoNumeric/autoNumeric.js" type="text/javascript"></script>
 
-</script>
-</script>
+<script src="<?=base_url()?>assets/leaflet-panel-layers-master/src/leaflet-panel-layers.js"></script>
+<link rel="stylesheet" href="<?=base_url()?>assets/leaflet-panel-layers-master/src/leaflet-panel-layers.css" />
+<!-- Leaflet Search Control  -->
+<script src="<?=base_url()?>assets/leaflet-search-master/src/leaflet-search.js"></script>
+<link rel="stylesheet" href="<?=base_url()?>assets/leaflet-search-master/src/leaflet-search.css" />
+
+
 <style>
 html,
 body {
@@ -17,33 +21,28 @@ body {
 
 #map {
     width: 100%;
-    height: 600px;
+    height: 620px;
+}
+
+/*Legend specific*/
+.legend {
+    padding: 8px;
+    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);*/
+    border-radius: 5px;
+    line-height: 24px;
+    color: #555;
 }
 </style>
-
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-color panel-default">
             <div class="panel-heading">
-                <form action="#" id="form_r24">
-                    <div class="row">
-                        <div class="col-md-3 mb-2">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <input type="hidden" name="id_r24">
-                                    <input type="text" placeholder="R24 (mm/jam)" name="r24" data-v-max="9999999.99"
-                                        data-v-min="250.00" class="form-control autonumber">
-                                    <small class="form-text text-danger"></small>
-                                    <span class="input-group-btn">
-                                        <button type="button" id="save_r24"
-                                            class="btn btn-primary waves-effect waves-light">Setting
-                                            R24 (mm)</button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                <button type="button" title="Setting R24" class="btn btn-icon waves-effect waves-light btn-default"
+                    data-toggle="modal" data-target="#setting-r24"><i class="fa fa-cloud"></i>
+                    Curah Hujan max harian :
+                    <strong id="r24-info">Tidak Diketahui</strong></button>
             </div>
             <div class="panel-body">
                 <div id="map">
@@ -53,16 +52,38 @@ body {
     </div>
 </div>
 <!-- end row -->
+<div id="setting-r24" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+    style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Setting R24</h4>
+            </div>
+            <div class="modal-body">
+                <form action="#" id="form_r24">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="hidden" name="id_r24">
+                                <input type="text" placeholder="R24 (mm/jam)" name="r24" class="form-control">
+                                <small class="form-text text-danger"></small>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Batal</button>
+                <button type="button" id="save_r24" class="btn btn-primary waves-effect waves-light">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div><!-- /.modal -->
+
 
 <script>
 $(document).ready(function() {
-    // Input Decimal and Number Only
-    $("input[name='r24']").keypress(function(event) {
-        if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event
-                .which > 57)) {
-            event.preventDefault();
-        }
-    });
     // Setting R24 
     $('#form_r24')[0].reset();
     //Ajax Load data from ajax
@@ -73,16 +94,23 @@ $(document).ready(function() {
         success: function(data) {
             $('[name="id_r24"]').val(data.id_r24);
             $('[name="r24"]').val(data.r24);
+
+            $("#r24-info").html(data.r24 + " mm/jam");
         },
         error: function(jqXHR, textStatus, errorThrown) {
-            Swal.fire({
-                timer: 1500,
-                timerProgressBar: true,
+            swal({
                 title: 'Gagal!',
-                html: 'Proses gagal!',
-                icon: 'error',
+                text: 'Proses gagal!',
+                type: 'error',
                 showConfirmButton: false,
-            });
+                timer: 1500
+            }).then(
+                function() {},
+                // handling the promise rejection
+                function(dismiss) {
+                    if (dismiss === 'timer') {}
+                }
+            )
         }
     });
     // Save R24
@@ -99,7 +127,9 @@ $(document).ready(function() {
             processData: false,
             dataType: "JSON",
             success: function(data) {
+                $("#r24-info").html($('[name="r24"]').val() + " mm/jam");
                 if (data.status) {
+                    $('#setting-r24').modal('hide');
                     swal({
                         title: 'Sukses!',
                         text: 'R24 berhasil disimpan!',
@@ -121,7 +151,8 @@ $(document).ready(function() {
                                 i]); //select span text-danger class set text error string
                     }
                 }
-                $('#save_r24').text('Setting R24'); //change button text
+
+                $('#save_r24').text('Simpan'); //change button text
                 $('#save_r24').attr('disabled', false); //set button enable 
             },
             error: function(jqXHR, textStatus, errorThrown) {
@@ -138,7 +169,8 @@ $(document).ready(function() {
                         if (dismiss === 'timer') {}
                     }
                 )
-                $('#save_r24').text('Setting R24'); //change button text
+
+                $('#save_r24').text('Simpan'); //change button text
                 $('#save_r24').attr('disabled', false); //set button enable 
 
             }
@@ -178,22 +210,25 @@ $.ajax({
                 let ag = value.luas_penampung;
                 let pg = value.keliling_penampung;
                 let v = parseFloat(ag) / Math.pow(pg, 2 / 3) * Math.pow(s, 1 / 2) / 0.012;
-
                 let total = parseFloat(v) * parseFloat(ag);
+
                 var q_drainase = total.toFixed(10);
 
                 //CIA
                 let c = 0.6;
                 let l = value.panjang_saluran;
-                let tc = Math.pow((0.872 * Math.pow(parseFloat(l), 2)) / (1000 * parseFloat(s)),
+                let tc = Math.pow((0.872 * Math.pow(parseFloat(l), 2)) / (
+                        1000 *
+                        parseFloat(s)),
                     0.385);
                 let r24 = $('[name="r24"]').val()
                 let i = (parseFloat(r24) / 24) * Math.pow(24 / parseFloat(tc), 2 / 3);
                 let a = value.catchment_area;
                 let konvA = parseFloat(a);
-                var total1 = 0.278 * parseFloat(c) * parseFloat(i) * parseFloat(konvA);
+                let total1 = 0.278 * parseFloat(c) * parseFloat(i) * parseFloat(konvA);
                 //TOTAL1 (Q Limpasan), Total (Q Drainase)
                 var cia = total1.toFixed(2)
+
                 var kesimpulan;
                 var myStyle;
                 // Status Genangan Logic 
@@ -219,8 +254,12 @@ $.ajax({
                         "geometry": {
                             "type": "LineString",
                             "coordinates": [
-                                [value.long_awal, value.lat_awal],
-                                [value.long_akhir, value.lat_akhir]
+                                [value.long_awal, value
+                                    .lat_awal
+                                ],
+                                [value.long_akhir, value
+                                    .lat_akhir
+                                ]
                             ]
                         },
                         "properties": {
@@ -264,7 +303,7 @@ $.ajax({
 
             }
 
-            // setInterval(async () => {
+
             var titik_koordinatLayer = L.geoJSON(
                 titik_koordinat<?= $row->id_kecamatan;?>, {
                     style: myStyle,
@@ -281,8 +320,7 @@ $.ajax({
                         return false;
                     },
                     onEachFeature: onEachFeature
-                }).addTo(<?php echo $row->layer?>);
-            // }, 1500);
+                }).addTo(<?= $row->layer?>);
 
             function onEachFeature(feature, layer) {
                 var popupContent = '<h5>' + value.nama_jalan + '</h5>';
@@ -341,21 +379,51 @@ var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18
     })
 
-var map = new L.Map('map', {
-    center: new L.LatLng(-7.977014, 112.634056),
-    zoom: 15,
-    layers: [osm, <?php foreach($kecamatan as $row){?> <?= $row->layer?>, <?php }?>]
+var map = L.map('map', {
+    center: [-7.977014, 112.634056],
+    zoom: 15
 });
-var baseMaps = {
-    "Open Street Map": osm,
-    "Google Satellite Map": satellite
-};
+map.addLayer(osm);
 
-var overlays = {
-    <?php foreach($kecamatan as $row){?> '<?= $row->nama_kecamatan?>': <?= $row->layer?>,
-    <?php }?>
+var baseMaps = [{
+        name: "OpenStreetMap",
+        layer: osm
+    },
+    {
+        name: "GoogleSatellite",
+        layer: satellite
+    }
+];
+
+var overLayers = [{
+    group: "Layer Kecamatan",
+    layers: [<?php foreach($kecamatan as $row){?> {
+            active: true,
+            name: '<?= $row->nama_kecamatan?>',
+            layer: <?= $row->layer?>,
+        },
+        <?php }?>
+    ]
+}];
+
+var panelLayers = new L.Control.PanelLayers(baseMaps, overLayers, {
+    collapsibleGroups: true,
+    // collapsed: true
+});
+map.addControl(panelLayers);
+
+
+var legend = L.control({
+    position: 'bottomright'
+});
+legend.onAdd = function(map) {
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML += "<h5>Status Genangan</h5>";
+    div.innerHTML +=
+        '<span style="background-color: red;display: inline-block;height: 6px;margin-right: 5px;width: 18px;"></span><span>Melimpah</span><br>';
+    div.innerHTML +=
+        '<span style="background-color: blue;display: inline-block;height: 6px;margin-right: 5px;width: 18px;"></span><span>Tidak Melimpah</span><br>';
+    return div;
 };
-L.control.layers(baseMaps, overlays, {
-    collapsed: false
-}).addTo(map);
+legend.addTo(map);
 </script>
