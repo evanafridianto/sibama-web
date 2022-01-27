@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -49,18 +49,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'beranda';
+$route['default_controller'] = 'web';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['drainase/(:any)'] = 'Drainase/$1';
-$route['drainase/(:any)/(:any)'] = 'Drainase/$1/$2';
+// default web
+$route['/'] = 'web';
+$route['about'] = 'web/about';
+$route['feedback'] = 'web/feedback';
+// application
+$route['admin/data-master/drainase'] = 'admin/drainase';
+$route['admin/data-master/jalan'] = 'admin/jalan';
+$route['admin/data-master/kelurahan'] = 'admin/kelurahan';
+$route['admin/data-master/kecamatan'] = 'admin/kecamatan';
+$route['admin/data-master/user'] = 'admin/user';
 
-$route['jalan/(:any)'] = 'Jalan/$1';
-$route['jalan/(:any)/(:any)'] = 'Jalan/$1/$2';
-
-$route['kelurahan/(:any)'] = 'Kelurahan/$1';
-$route['kelurahan/(:any)/(:any)'] = 'Kelurahan/$1/$2';
-
-$route['kecamatan/(:any)'] = 'Kecamatan/$1';
-$route['kecamatan/(:any)/(:any)'] = 'Kecamatan/$1/$2';
+// data kategori 
+$route['admin/data-kategori'] = 'admin/kategori';
+// login 
+$route['admin/login'] = 'admin/auth';
+$route['admin'] = 'admin/auth';
