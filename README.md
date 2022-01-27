@@ -2,7 +2,7 @@
 
 # Komponen
 
-1. PHP 8.0.12
+1. PHP v8.1.1
 2. Teknologi :
 - Codeigniter 3.1.11 ([codeigniter3](https://codeigniter.com/userguide3/installationdownloads.html))
 - Bootstrap v3.3.7 Template ([Adminox](https://coderthemes.com/adminox/storefront=envato-elements))
