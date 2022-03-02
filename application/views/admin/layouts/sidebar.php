@@ -18,7 +18,7 @@
                 </li>
                 <li>
                     <a href="<?= site_url('/') ?>" target="_BLANK" aria-expanded="true"><i class="fi-open"></i><span
-                            class="badge badge-success pull-right"></span> <span>Lihat Web
+                            class="badge badge-success pull-right"></span> <span>Lihat Situs
                         </span></a>
                 </li>
                 <li class="menu-title">Databases</li>
@@ -26,30 +26,35 @@
                     <a href="javascript: void(0);" aria-expanded="true"><i class="fi-server"></i> <span>Data
                             Master</span> <span class="menu-arrow"></span></a>
                     <ul class="nav-second-level nav" aria-expanded="true">
-                        <li><a href="<?= site_url('admin/data-master/drainase') ?>">Data Drainase</a></li>
-                        <li><a href="<?= site_url('admin/data-master/jalan') ?>">Data Jalan</a></li>
-                        <li><a href="<?= site_url('admin/data-master/kelurahan') ?>">Data Kelurahan</a></li>
-                        <li><a href="<?= site_url('admin/data-master/kecamatan') ?>">Data Kecamatan</a></li>
-                        <li> <a href="<?= site_url('admin/data-kategori') ?>">Data Kategori</a></li>
-                        <li><a href="<?= site_url('admin/data-master/user') ?>">Data User</a></li>
+                        <li><a href="<?= site_url('admin/data-master/drainase') ?>">Drainase</a></li>
+                        <li> <a href="<?= site_url('admin/data-master/kondisi-penanganan') ?>">Kondisi & Penanganan
+                                Drainase</a>
+                        </li>
+                        <li><a href="<?= site_url('admin/data-master/jalan') ?>">Jalan </a></li>
+                        <li><a href="<?= site_url('admin/data-master/kelurahan') ?>">Kelurahan</a></li>
+                        <li><a href="<?= site_url('admin/data-master/kecamatan') ?>">Kecamatan</a></li>
+                        <li><a href="<?= site_url('admin/data-master/user') ?>">User</a></li>
                     </ul>
                 </li>
-                <li class="menu-title">Account Settings</li>
                 <li>
-                    <a href="javascript: void(0);" onclick="profil_user(<?= $this->session->id_user ?>)"
-                        aria-expanded="true"><i class="fi-head"></i><span class="badge badge-success pull-right"></span>
-                        <span> Profil
-                        </span></a>
+                    <a href="<?= site_url('admin/r24') ?>" aria-expanded="true"><i class="fi-drop"></i><span
+                            class="badge badge-success pull-right"></span> <span>
+                            Curah Hujan/R24 </span></a>
                 </li>
+                <li class="menu-title">Accounts</li>
                 <li>
-                    <a href="javascript: void(0);" onclick="ganti_pass(<?= $this->session->id_user ?>)"
-                        aria-expanded="true"><i class="fi-unlock"></i><span
-                            class="badge badge-success pull-right"></span> <span> Ganti
-                            Password </span></a>
+                    <a href="javascript: void(0);" aria-expanded="true"><i class="fi-cog"></i> <span>Pengaturan
+                            Akun</span> <span class="menu-arrow"></span></a>
+                    <ul class="nav-second-level nav" aria-expanded="true">
+                        <li><a href="javascript: void(0);"
+                                onclick="profil_user(<?= $this->session->id_user ?>)">Profil</a></li>
+                        <li><a href="javascript: void(0);" onclick="ganti_pass(<?= $this->session->id_user ?>)"> Ganti
+                                Password</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="javascript: void(0);" onclick="logout()" aria-expanded="true"><i class="fi-power"></i><span
-                            class="badge badge-success pull-right"></span> <span> Logout </span></a>
+                            class="badge badge-success pull-right"></span> <span> Log Out </span></a>
                 </li>
             </ul>
         </div>

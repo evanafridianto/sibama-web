@@ -2,27 +2,7 @@
 <html>
 
 <?php include 'head.php' ?>
-<style>
-/* map css */
-#map {
-    height: 660px;
-    width: 100vw;
-    width: 100%;
-    display: block;
-    z-index: 3;
-}
 
-/*Legend specific*/
-.legend {
-    padding: 8px;
-    background: white;
-    background: rgba(255, 255, 255, 0.8);
-    /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);*/
-    border-radius: 5px;
-    line-height: 24px;
-    color: #555;
-}
-</style>
 
 <body>
 
@@ -86,8 +66,6 @@
         </div>
     </div>
     <?php include 'javascript.php' ?>
-
-    <script src="<?= site_url('assets/main.js') ?>"></script>
     <!-- end row -->
     <div id="profil_user_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true" style="display: none;">
@@ -113,10 +91,10 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="hidden" name="id_user" class="form-control edit-profil">
+                                    <input type="hidden" name="id_user" class="form-control">
                                     <label>Nama</label>
-                                    <input type="text" name="nama" class="form-control edit-profil">
-                                    <span class="form-text text-danger"></span>
+                                    <input type="text" name="nama" class="form-control">
+                                    <small class="form-text text-danger"></small>
                                 </div>
                             </div>
                         </div>
@@ -124,8 +102,8 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Username</label>
-                                    <input type="text" name="username" class="form-control edit-profil">
-                                    <span class="form-text text-danger"></span>
+                                    <input type="text" name="username" class="form-control">
+                                    <small class="form-text text-danger"></small>
                                 </div>
                             </div>
                         </div>
@@ -133,8 +111,8 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label id="label-photo">Upload Foto</label>
-                                    <input type="file" name="photo" class="form-control edit-profil" accept="image/*">
-                                    <span class="form-text text-danger"></span>
+                                    <input type="file" name="photo" class="form-control" accept="image/*">
+                                    <small class="form-text text-danger"></small>
                                     <div class="form-group" id="photo-preview">
                                         <div>
                                         </div>
@@ -173,9 +151,9 @@
                                     <label>Password Lama </label>
                                     <input type="hidden" class="form-control edit-data"
                                         value="<?= $this->session->id_user ?>" name="id_user" />
-                                    <input type="text" placeholder="Masukkan Password Lama" name="password"
+                                    <input type="password" placeholder="Masukkan Password Lama" name="password"
                                         class="form-control">
-                                    <span class="form-text text-danger"></span>
+                                    <small class="form-text text-danger"></small>
                                 </div>
                             </div>
                         </div>
@@ -183,19 +161,19 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Password Baru</label>
-                                    <input type="text" placeholder="Masukkan Password Baru" name="password_baru"
+                                    <input type="password" placeholder="Masukkan Password Baru" name="password_baru"
                                         class="form-control">
-                                    <span class="form-text text-danger"></span>
+                                    <small class="form-text text-danger"></small>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Konfirmasi Password Baru</label>
-                                    <input type="text" placeholder="Konfirmasi Password Baru" name="konfir_password"
+                                    <label>Konfirmasi Password </label>
+                                    <input type="password" placeholder="Konfirmasi Password Baru" name="konfir_password"
                                         class="form-control">
-                                    <span class="form-text text-danger"></span>
+                                    <small class="form-text text-danger"></small>
                                 </div>
                             </div>
                         </div>
@@ -210,7 +188,7 @@
             </div>
         </div>
     </div><!-- /.modal -->
-
+    <script src="<?= base_url('assets/app/main.js') ?>"></script>
 </body>
 
 </html>

@@ -77,70 +77,10 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <button disabled="disabled" id="refreshBtn" data-toggle="collapse"
-                                    class="btn btn-primary edit-data waves-effect waves-light"
-                                    data-parent="#accordion-test" href="#collapseOne" class="collapsed"><i
-                                        class="fa fa-map-pin m-r-5"></i>
+                                    class="btn btn-primary  waves-effect waves-light" data-parent="#accordion-test"
+                                    href="#collapseOne" class="collapsed"><i class="fa fa-map-pin m-r-5"></i>
                                     Pilih Titik Koordinat
                                 </button>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" style="display: none;" name="id" />
-                                <label>Nama Jalan</label>
-                                <select disabled="disabled" class="form-control select2-container" name="id_jalan"
-                                    required="">
-                                    <!-- <option value="">--Pilih Jalan--</option> -->
-
-                                </select>
-                                <span class="text-danger id_jalan-err"></span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Tanggal</label>
-                                <input disabled="disabled" name="date" type="text"
-                                    class="form-control edit-data datepicker" placeholder=" yyyy-mm-dd" required="">
-                                <span class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Latitude Awal</label>
-                                <input disabled="disabled" type="text" class="form-control edit-data" name="lat_awal"
-                                    required="" placeholder="Masukkan Latitude Awal">
-                                <span class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Longitude Awal</label>
-                                <input disabled="disabled" type="text" class="form-control edit-data" name="long_awal"
-                                    required="" placeholder="Masukkan Longitude Awal">
-                                <span class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Latitude Akhir</label>
-                                <input disabled="disabled" type="text" class="form-control edit-data" name="lat_akhir"
-                                    required="" placeholder="Masukkan Latitude Akhir">
-                                <span class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Longitude Akhir</label>
-                                <input disabled="disabled" type="text" class="form-control edit-data" name="long_akhir"
-                                    required="" placeholder="Masukkan Longitude Akhir">
-                                <span class="text-danger"></span>
                             </div>
                         </div>
                     </div>
@@ -148,216 +88,109 @@
                         <div class="col-lg-12">
                             <div class="panel-group map-view">
                                 <div id="collapseOne" class="panel-collapse collapse">
-                                    <div class="panel-body" id="mymap">
+                                    <div class="panel-body img-thumbnail" id="mymap">
 
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" name="id_drainase" />
+                                <label>Nama Jalan</label>
+                                <select class="form-control" name="id_jalan" required="">
+                                    <option value="">--Pilih Jalan--</option>
+                                    <?php foreach ($jalan as $jalan) { ?>
+                                    <option value="<?= $jalan->id_jalan; ?>">
+                                        <?= $jalan->nama_jalan, ',' . $jalan->nama_kelurahan . ',' . $jalan->nama_kecamatan; ?>
+                                    </option>
+                                    <?php } ?>
+                                </select>
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Latitude Awal</label>
+                                <input disabled="disabled" type="text" class="form-control" name="lat_awal" required=""
+                                    placeholder="Masukkan Latitude Awal">
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Latitude Akhir</label>
+                                <input disabled="disabled" type="text" class="form-control" name="lat_akhir" required=""
+                                    placeholder="Masukkan Latitude Akhir">
+                                <small class="text-danger"></small>
+                            </div>
                             <div class="form-group">
                                 <label>STA</label>
-                                <input disabled="disabled" type="text" class="form-control edit-data" name="sta"
-                                    required="" placeholder="Masukkan STA">
-                                <span class="text-danger"></span>
+                                <input disabled="disabled" type="text" class="form-control" name="sta" required=""
+                                    placeholder="Masukkan STA">
+                                <small class="text-danger"></small>
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group">
-                                <label>Slope</label>
-                                <input disabled="disabled" type="text" class="form-control edit-data" name="slope"
-                                    required="" placeholder="Masukkan Slope (m)">
-                                <span class="text-danger"></span>
+                                <label>Panjang </label>
+                                <input disabled="disabled" type="text" class="form-control" name="panjang" required=""
+                                    placeholder="Masukkan Panjang Drainase (m)">
+                                <small class="text-danger"></small>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
                             <div class="form-group">
-                                <label>Panjang Saluran</label>
-                                <input disabled="disabled" type="text" class="form-control edit-data"
-                                    name="panjang_saluran" required="" placeholder="Masukkan Panjang Saluran (m)">
-                                <span class="text-danger"></span>
+                                <label>Lebar </label>
+                                <input disabled="disabled" type="text" class="form-control" name="lebar" required=""
+                                    placeholder="Masukkan Lebar Drainase (m)">
+                                <small class="text-danger"></small>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Lebar Saluran</label>
-                                <input disabled="disabled" type="text" class="form-control edit-data"
-                                    name="lebar_saluran" required="" placeholder="Masukkan Lebar Saluran (m)">
-                                <span class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Tinggi Saluran</label>
-                                <input disabled="disabled" type="text" class="form-control edit-data"
-                                    name="tinggi_saluran" required="" placeholder="Masukkan Tinggi Saluran (m)">
-                                <span class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Luas Penampung</label>
-                                <input disabled="disabled" type="text" class="form-control edit-data"
-                                    name="luas_penampung" required="" placeholder="Masukkan Luas Penampung (m2)">
-                                <span class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
+
                             <div class="form-group">
                                 <label>Keliling Penampung</label>
-                                <input disabled="disabled" type="text" class="form-control edit-data"
-                                    name="keliling_penampung" required="" placeholder="Masukkan Keliling Penampung (m)">
-                                <span class="text-danger"></span>
+                                <input disabled="disabled" type="text" class="form-control" name="keliling_penampung"
+                                    required="" placeholder="Masukkan Keliling Penampung (m)">
+                                <small class="text-danger"></small>
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group">
-                                <label>Catchment Area</label>
-                                <input disabled="disabled" type="text" class="form-control edit-data"
-                                    name="catchment_area" required="" placeholder="Masukkan Catchment Area (ha)">
-                                <span class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Arah Aliran</label>
-                                <select disabled="disabled" class="form-control edit-data" name="id_arah_aliran"
-                                    required="">
-                                    <option value="">--Pilih Arah Aliran--</option>
-                                    <?php foreach ($arah_aliran as $alir) { ?>
-                                    <option value="<?= $alir->id_arah_aliran; ?>">
-                                        <?= $alir->arah_aliran; ?>
-                                    </option>
-                                    <?php } ?>
+                                <label>Tipe </label>
+                                <select disabled="disabled" class="form-control" name="tipe" required="">
+                                    <option value="">--Pilih Tipe Drainase--</option>
+                                    <option value="Terbuka">Terbuka</option>
+                                    <option value="Tertutup">Tertutup</option>
                                 </select>
-                                <span class="text-danger"></span>
+                                <small class="text-danger"></small>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Tipe Saluran</label>
-                                <select disabled="disabled" class="form-control edit-data" name="id_tipe_saluran"
-                                    required="">
-                                    <option value="">--Pilih Tipe Saluran--</option>
-                                    <?php foreach ($tipe_saluran as $sal) { ?>
-                                    <option value="<?= $sal->id_tipe_saluran; ?>">
-                                        <?= $sal->tipe_saluran; ?>
-                                    </option>
-                                    <?php } ?>
-                                </select>
-                                <span class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Kondisi Sedimen</label>
-                                <select disabled="disabled" class="form-control edit-data" name="id_kondisi_sedimen"
-                                    required="">
-                                    <option value="">--Pilih Kondisi Sedimen--</option>
-                                    <?php foreach ($kondisi_sedimen as $sed) { ?>
-                                    <option value="<?= $sed->id_kondisi_sedimen; ?>">
-                                        <?= $sed->kondisi_sedimen; ?></option>
-                                    <?php } ?>
-                                </select>
-                                <span class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Kondisi Fisik</label>
-                                <select disabled="disabled" class="form-control edit-data" name="id_kondisi_fisik"
-                                    required="">
+                                <select disabled="disabled" class="form-control" name="id_kondisi_fisik" required="">
                                     <option value="">--Pilih Kondisi Fisik--</option>
                                     <?php foreach ($kondisi_fisik as $fisik) { ?>
                                     <option value="<?= $fisik->id_kondisi_fisik; ?>">
-                                        <?= $fisik->kondisi_fisik; ?></option>
+                                        <?= $fisik->nama_kondisi_fisik; ?></option>
                                     <?php } ?>
                                 </select>
-                                <span class="text-danger"></span>
+                                <small class="text-danger"></small>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Penanganan</label>
-                                <select disabled="disabled" class="form-control edit-data" name="id_penanganan"
-                                    required="">
+                                <select disabled="disabled" class="form-control" name="id_penanganan" required="">
                                     <option value="">--Pilih Penanganan--</option>
                                     <?php foreach ($penanganan as $pen) { ?>
                                     <option value="<?= $pen->id_penanganan; ?>">
-                                        <?= $pen->penanganan; ?>
+                                        <?= $pen->nama_penanganan; ?>
                                     </option>
                                     <?php } ?>
                                 </select>
-                                <span class="text-danger"></span>
+                                <small class="text-danger"></small>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Lajur Drainase</label>
-                                <select disabled="disabled" class="form-control edit-data" name="id_lajur_drainase"
-                                    required="">
-                                    <option value="">--Pilih Lajur Drainase--</option>
-                                    <?php foreach ($lajur_drainase as $lajur) { ?>
-                                    <option value="<?= $lajur->id_lajur_drainase; ?>">
-                                        <?= $lajur->lajur_drainase; ?></option>
-                                    <?php } ?>
-                                </select>
-                                <span class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Nama File Foto</label>
-                                <input disabled="disabled" type="text" class="form-control edit-data"
-                                    name="nama_file_foto" required="" placeholder="Masukkan Nama File Foto">
-                                <span class="text-danger"></span>
+                                <input disabled="disabled" type="text" class="form-control" name="nama_file_foto"
+                                    required="" placeholder="Masukkan Nama File Foto" />
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Nama File Dimensi</label>
-                                <input disabled="disabled" type="text" class="form-control edit-data"
-                                    name="nama_file_dimensi" required="" placeholder="Masukkan Nama File Dimensi">
-                                <span class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
                             <div class="form-group">
                                 <label id="label-foto">Upload Foto</label>
-                                <input disabled="disabled" type="file" class="form-control edit-data"
+                                <input disabled="disabled" type="file" class="form-control"
                                     onchange="fileSelect1(event)" name="file_foto" accept="image/*">
-                                <span class="text-danger"></span>
+                                <small class="text-danger"></small>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label id="label-dimensi">Upload Dimensi</label>
-                                <input disabled="disabled" type="file" class="form-control edit-data"
-                                    onchange="fileSelect2(event)" name="file_dimensi" accept="image/*">
-                                <span class="text-danger"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
                             <div class="form-group" id="foto-preview">
                                 <label>Foto</label>
                                 <div>
@@ -365,7 +198,90 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Jalur Jalan</label>
+                                <select disabled="disabled" class="form-control" name="jalur_jalan" required="">
+                                    <option value="">--Pilih Jalur Jalan--</option>
+                                    <option value="Kanan">Kanan</option>
+                                    <option value="Kiri">Kiri</option>
+                                </select>
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Longitude Awal</label>
+                                <input disabled="disabled" type="text" class="form-control" name="long_awal" required=""
+                                    placeholder="Masukkan Longitude Awal">
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Longitude Akhir</label>
+                                <input disabled="disabled" type="text" class="form-control" name="long_akhir"
+                                    required="" placeholder="Masukkan Longitude Akhir">
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Slope</label>
+                                <input disabled="disabled" type="text" class="form-control" name="slope" required=""
+                                    placeholder="Masukkan Slope (m)">
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Tinggi </label>
+                                <input disabled="disabled" type="text" class="form-control" name="tinggi" required=""
+                                    placeholder="Masukkan Tinggi Drainase (m)">
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Luas Penampung</label>
+                                <input disabled="disabled" type="text" class="form-control" name="luas_penampung"
+                                    required="" placeholder="Masukkan Luas Penampung (m2)">
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Catchment Area</label>
+                                <input disabled="disabled" type="text" class="form-control" name="catchment_area"
+                                    required="" placeholder="Masukkan Catchment Area (ha)">
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Arah Air</label>
+                                <select disabled="disabled" class="form-control" name="arah_air" required="">
+                                    <option value="">--Pilih Arah Air--</option>
+                                    <option value="Atas">Atas</option>
+                                    <option value="Bawah">Bawah</option>
+                                </select>
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Kondisi Sedimen</label>
+                                <select disabled="disabled" class="form-control" name="id_kondisi_sedimen" required="">
+                                    <option value="">--Pilih Kondisi Sedimen--</option>
+                                    <?php foreach ($kondisi_sedimen as $sed) { ?>
+                                    <option value="<?= $sed->id_kondisi_sedimen; ?>">
+                                        <?= $sed->nama_kondisi_sedimen; ?></option>
+                                    <?php } ?>
+                                </select>
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Tanggal</label>
+                                <input disabled="disabled" name="date" type="text" class="form-control datepicker"
+                                    placeholder=" yyyy-mm-dd" required="">
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group">
+                                <label>Nama File Dimensi</label>
+                                <input disabled="disabled" type="text" class="form-control" name="nama_file_dimensi"
+                                    required="" placeholder="Masukkan Nama File Dimensi">
+                            </div>
+                            <div class="form-group">
+                                <label id="label-dimensi">Upload Dimensi</label>
+                                <input disabled="disabled" type="file" class="form-control"
+                                    onchange="fileSelect2(event)" name="file_dimensi" accept="image/*">
+                                <small class="text-danger"></small>
+                            </div>
                             <div class="form-group" id="dimensi-preview">
                                 <label>Dimensi</label>
                                 <div>
@@ -374,6 +290,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Batal</button>
@@ -387,5 +304,4 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-<script src="<?= site_url('datajson/data/jalan') ?>"></script>
-<script src="<?= site_url('assets/crud.drainase.js') ?>"></script>
+<script src="<?= base_url('assets/app/drainase.js') ?>"></script>

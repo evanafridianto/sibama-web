@@ -1,74 +1,71 @@
 <div class="row">
-    <div class="col-lg-3 col-md-6">
-        <div class="card-box widget-box-two widget-two-custom" title="Total Drainase">
-            <i class="mdi mdi-highway widget-two-icon"></i>
-            <div class="wigdet-two-content">
-                <p class="m-0 text-uppercase font-bold font-secondary text-overflow">Total Drainase</p>
-                <h2 class="font-600">
-                    <span data-plugin="counterup"><?= $count_drainase; ?></span>
-                </h2>
+    <a href="<?= site_url('admin/data-master/drainase') ?>">
+        <div class="col-lg-3 col-md-6">
+            <div class="card-box widget-box-two widget-two-custom" title="Total Drainase">
+                <i class="mdi mdi-highway widget-two-icon"></i>
+                <div class="wigdet-two-content">
+                    <p class="m-0 text-uppercase font-bold font-secondary text-overflow">Total Drainase</p>
+                    <h2 class="font-600">
+                        <span data-plugin="counterup"><?= $count_drainase; ?></span>
+                    </h2>
+                </div>
             </div>
-        </div>
-    </div><!-- end col -->
-    <div class="col-lg-3 col-md-6">
-        <div class="card-box widget-box-two widget-two-custom" title="Total Jalan">
-            <i class="mdi mdi-road widget-two-icon"></i>
-            <div class="wigdet-two-content">
-                <p class="m-0 text-uppercase font-bold font-secondary text-overflow">Total Jalan</p>
-                <h2 class="font-600">
-                    <span data-plugin="counterup"><?= $count_jalan; ?></span>
-                </h2>
+        </div><!-- end col -->
+    </a>
+    <a href="<?= site_url('admin/data-master/jalan') ?>">
+        <div class="col-lg-3 col-md-6">
+            <div class="card-box widget-box-two widget-two-custom" title="Total Jalan">
+                <i class="mdi mdi-road widget-two-icon"></i>
+                <div class="wigdet-two-content">
+                    <p class="m-0 text-uppercase font-bold font-secondary text-overflow">Total Jalan</p>
+                    <h2 class="font-600">
+                        <span data-plugin="counterup"><?= $count_jalan; ?></span>
+                    </h2>
+                </div>
             </div>
-        </div>
-    </div><!-- end col -->
-    <div class="col-lg-3 col-md-6">
-        <div class="card-box widget-box-two widget-two-custom" title="Total Kelurahan">
-            <i class="mdi mdi-domain widget-two-icon"></i>
-            <div class="wigdet-two-content">
-                <p class="m-0 text-uppercase font-bold font-secondary text-overflow">Total Kelurahan</p>
-                <h2 class="font-600">
-                    <span data-plugin="counterup"><?= $count_kelurahan; ?></span>
-                </h2>
+        </div><!-- end col -->
+    </a>
+    <a href="<?= site_url('admin/data-master/kelurahan') ?>">
+        <div class="col-lg-3 col-md-6">
+            <div class="card-box widget-box-two widget-two-custom" title="Total Kelurahan">
+                <i class="mdi mdi-domain widget-two-icon"></i>
+                <div class="wigdet-two-content">
+                    <p class="m-0 text-uppercase font-bold font-secondary text-overflow">Total Kelurahan</p>
+                    <h2 class="font-600">
+                        <span data-plugin="counterup"><?= $count_kelurahan; ?></span>
+                    </h2>
+                </div>
             </div>
-        </div>
-    </div><!-- end col -->
-    <div class="col-lg-3 col-md-6">
-        <div class="card-box widget-box-two widget-two-custom" title="Total Kecamatan">
-            <i class="mdi mdi-home-variant widget-two-icon"></i>
-            <div class="wigdet-two-content">
-                <p class="m-0 text-uppercase font-bold font-secondary text-overflow">Total Kecamatan</p>
-                <h2 class="font-600">
-                    <span data-plugin="counterup"><?= $count_kecamatan; ?></span>
-                </h2>
+        </div><!-- end col -->
+    </a>
+    <a href="<?= site_url('admin/data-master/kecamatan') ?>">
+        <div class="col-lg-3 col-md-6">
+            <div class="card-box widget-box-two widget-two-custom" title="Total Kecamatan">
+                <i class="mdi mdi-home-variant widget-two-icon"></i>
+                <div class="wigdet-two-content">
+                    <p class="m-0 text-uppercase font-bold font-secondary text-overflow">Total Kecamatan</p>
+                    <h2 class="font-600">
+                        <span data-plugin="counterup"><?= $count_kecamatan; ?></span>
+                    </h2>
+                </div>
             </div>
-        </div>
-    </div><!-- end col -->
+        </div><!-- end col -->
+    </a>
 </div>
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-lg-6">
         <div class="card-box">
-            <div class="alert alert-warning alert-dismissible fade in" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <strong>Warning!</strong> Saluran drainase dalam kondisi rusak berat.
-            </div>
+            <h4 class="m-t-0 header-title"><b>Jumlah Drainase per Kelurahan</b></h4>
             <div class="table-responsive">
-                <table id="table-beranda" class="table table-striped table-bordered dt-responsive nowrap"
-                    cellspacing="0" width="100%">
+                <table id="table-dashboard" class="table m-0 table-colored table-bordered table-custom">
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Jalan/Lokasi</th>
-                            <th>Latitude Awal</th>
-                            <th>Longitude Awal</th>
-                            <th>Latitude Akhir</th>
-                            <th>Longitude Akhir</th>
-                            <th>Kondisi Fisik</th>
-                            <th>Lajur Drainase</th>
-                            <th>Aksi</th>
+                            <th class="text-center">#</th>
+                            <th>Nama Kelurahan</th>
+                            <th class="text-center">Jumlah Drainae</th>
                         </tr>
                     </thead>
+
                     <tbody>
 
                     </tbody>
@@ -77,18 +74,13 @@
             </div>
         </div>
     </div>
+    <div class="col-lg-6">
+        <div class="card-box">
+            <h4 class="header-title m-t-0">STATISTIK STATUS GENANGAN PADA SALURAN DRAINASE</h4>
+            <canvas id="myChart" height="235"></canvas>
+        </div>
+    </div>
 </div>
-<script>
-$(document).ready(function() {
-    $('#table-beranda').DataTable({
-        "processing": true, //Feature control the processing indicator.
-        "order": [], //Initial no order.
-        "autoWidth": false,
-        // Load data for the table's content from an Ajax source
-        "ajax": {
-            "url": $('meta[name=app-url]').attr("content") + "admin/dashboard/drainase_rusak",
-            "type": "GET"
-        },
-    });
-});
-</script>
+
+<script src=" https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="<?= base_url('assets/app/dashboard.js') ?>"></script>

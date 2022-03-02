@@ -25,7 +25,8 @@
                     </li>
                     <li><a href="javascript: void(0);" onclick="ganti_pass(<?= $this->session->id_user ?>)">Ganti
                             Password</a></li>
-                    <li><a href="javascript: void(0);" onclick="logout()">Logout</a></li>
+                    <li class="divider"></li>
+                    <li><a href="javascript: void(0);" onclick="logout()">Log Out</a></li>
                 </ul>
             </li>
         </ul> <!-- end navbar-right -->

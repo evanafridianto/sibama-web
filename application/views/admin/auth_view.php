@@ -44,8 +44,8 @@
                                                     alt="" height="30"></span>
                                         </a>
                                     </h2>
-                                    <h5 class="text-uppercase font-bold m-b-5 m-t-50">Login</h5>
-                                    <p class="m-b-0">Login to your Admin account</p>
+                                    <h5 class="text-uppercase font-bold m-b-5 m-t-50">Log In</h5>
+                                    <p class="m-b-0">Log In to your Admin account</p>
                                 </div>
                                 <div class="account-content">
                                     <form class="form-horizontal" id="form_login">
@@ -54,7 +54,7 @@
                                                 <label for="emailaddress">Username</label>
                                                 <input class="form-control" name="username"
                                                     placeholder="Masukkan Username">
-                                                <span class="text-danger"></span>
+                                                <small class="text-danger"></small>
                                             </div>
                                         </div>
                                         <div class="form-group m-b-20">
@@ -62,7 +62,7 @@
                                                 <label for="password">Password</label>
                                                 <input class="form-control" type="password" name="password"
                                                     placeholder="Masukkan password">
-                                                <span class="text-danger"></span>
+                                                <small class="text-danger"></small>
                                             </div>
                                         </div>
                                         <div class="form-group text-center m-t-10">
@@ -70,7 +70,7 @@
                                                 <button type="button"
                                                     class="btn btn-md btn-block btn-primary waves-effect waves-light"
                                                     onclick="login()"><i class="fa  fa-sign-in m-r-5"></i>
-                                                    <span>Login</span></button>
+                                                    <span>Log In </span></button>
                                             </div>
                                         </div>
 
@@ -106,82 +106,7 @@
     <!-- App js -->
     <script src="<?= base_url() ?>assets/admin/js/jquery.core.js"></script>
     <script src="<?= base_url() ?>assets/admin/js/jquery.app.js"></script>
-    <script>
-    //  login
-    function login() {
-        $('#btnLogin').text('Memproses...'); //change button text
-        $('#btnLogin').attr('disabled', true); //set button disable 
-        // ajax adding data to database
-        $.ajax({
-            url: $('meta[name=app-url]').attr("content") + "admin/auth/check",
-            type: "POST",
-            data: $("#form_login").serialize(),
-            dataType: "JSON",
-            success: function(data) {
-                if (data.status) {
-                    swal({
-                        title: 'Sukses!',
-                        text: 'Login berhasil!',
-                        type: 'success',
-                        showConfirmButton: false,
-                        timer: 1000
-                    }).then(
-                        // handling the promise rejection
-                        function(dismiss) {
-                            if (dismiss === 'timer') {}
-                        },
-                        function() {
-                            window.location.href = "<?= site_url('admin/dashboard') ?>";
-                        }
-                    );
-                } else if (data.inputerror) {
-                    for (var i = 0; i < data.inputerror.length; i++) {
-                        $('[name="' + data.inputerror[i] + '"]').next().text(data.error_string[
-                            i]); //select span text-danger class set text error string
-                    }
-                } else {
-                    swal({
-                        title: 'Gagal!',
-                        text: data.msg,
-                        type: 'error',
-                        showConfirmButton: false,
-                        timer: 1000
-                    }).then(
-                        function() {},
-                        // handling the promise rejection
-                        function(dismiss) {
-                            if (dismiss === 'timer') {}
-                        }
-                    )
-                }
-                $('#btnLogin').text('Login'); //change button text
-                $('#btnLogin').attr('disabled', false); //set button enable 
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                $('#btnLogin').text('Login'); //change button text
-                $('#btnLogin').attr('disabled', false);
-                swal({
-                    title: 'Gagal!',
-                    text: 'Proses gagal!',
-                    type: 'error',
-                    showConfirmButton: false,
-                    timer: 1000
-                }).then(
-                    function() {},
-                    // handling the promise rejection
-                    function(dismiss) {
-                        if (dismiss === 'timer') {}
-                    }
-                )
-            }
-        });
-    }
-    $(document).ready(function() {
-        $("input").keyup(function() {
-            $(this).next().empty();
-        });
-    });
-    </script>
+    <script src="<?= base_url() ?>assets/app/auth.js"></script>
 </body>
 
 </html>

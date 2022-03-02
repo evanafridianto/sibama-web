@@ -14,6 +14,9 @@
 <script src="<?= base_url() ?>assets/admin/plugins/datatables/dataTables.bootstrap.js"></script>
 <script src="<?= base_url() ?>assets/admin/plugins/datatables/dataTables.responsive.min.js"></script>
 <script src="<?= base_url() ?>assets/admin/plugins/datatables/responsive.bootstrap.min.js"></script>
+<script src="<?= base_url() ?>assets/admin/plugins/select2/js/select2.min.js" type="text/javascript"></script>
+<script src="<?= base_url() ?>assets/admin/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript">
+</script>
 <!-- Sweet-Alert  -->
 <script src="<?= base_url() ?>assets/admin/plugins/sweet-alert2/sweetalert2.min.js"></script>
 <!-- Light Box js -->
@@ -23,3 +26,5 @@
 <!-- App js -->
 <script src="<?= base_url() ?>assets/admin/js/jquery.core.js"></script>
 <script src="<?= base_url() ?>assets/admin/js/jquery.app.js"></script>
+<!-- Chart JS -->
+<script src="<?= base_url() ?>assets/admin/plugins/chart.js/chart.min.js"></script>

@@ -45,7 +45,7 @@ class Datamaster_model extends CI_Model
 		$this->db->truncate($table);
 	}
 	// select option 
-	public function select($table)
+	public function get($table)
 	{
 		return $this->db->get($table);
 	}
@@ -58,16 +58,13 @@ class Datamaster_model extends CI_Model
 		$this->db->join('jalan', 'jalan.id_jalan=drainase.id_jalan', 'LEFT');
 		$this->db->join('kelurahan', 'jalan.id_kelurahan=kelurahan.id_kelurahan', 'LEFT');
 		$this->db->join('kecamatan', 'kelurahan.id_kecamatan=kecamatan.id_kecamatan', 'LEFT');
-		$this->db->join('arah_aliran', 'drainase.id_arah_aliran=arah_aliran.id_arah_aliran', 'LEFT');
-		$this->db->join('kondisi_fisik', 'drainase.id_kondisi_fisik=kondisi_fisik.id_kondisi_fisik', 'LEFT');
-		$this->db->join('lajur_drainase', 'drainase.id_lajur_drainase=lajur_drainase.id_lajur_drainase', 'LEFT');
-		$this->db->join('tipe_saluran', 'drainase.id_tipe_saluran=tipe_saluran.id_tipe_saluran', 'LEFT');
-		$this->db->join('kondisi_sedimen', 'drainase.id_kondisi_sedimen=kondisi_sedimen.id_kondisi_sedimen', 'LEFT');
-		$this->db->join('penanganan', 'drainase.id_penanganan=penanganan.id_penanganan', 'LEFT');
-		$this->db->order_by('drainase.id');
+		$this->db->join('setting_r24', 'setting_r24.id_kecamatan=kecamatan.id_kecamatan', 'LEFT');
+		$this->db->join('kondisi_fisik_drainase', 'drainase.id_kondisi_fisik=kondisi_fisik_drainase.id_kondisi_fisik', 'LEFT');
+		$this->db->join('kondisi_sedimen_drainase', 'drainase.id_kondisi_sedimen=kondisi_sedimen_drainase.id_kondisi_sedimen', 'LEFT');
+		$this->db->join('penanganan_drainase', 'drainase.id_penanganan=penanganan_drainase.id_penanganan', 'LEFT');
+		$this->db->order_by('drainase.id_drainase');
 		return $this->db->get();
 	}
-	// END DRAINASE 
 
 	// JALAN
 	public function getJalan()
@@ -89,10 +86,6 @@ class Datamaster_model extends CI_Model
 		$this->db->order_by('kelurahan.id_kelurahan');
 		return $this->db->get();
 	}
-	public function getChainKelurahan($id_kecamatan)
-	{
-		return $this->db->get_where('kelurahan', ['id_kecamatan' => $id_kecamatan])->result();
-	}
 
 	// KECAMATAN
 	public function getKecamatan()
@@ -108,6 +101,16 @@ class Datamaster_model extends CI_Model
 		$this->db->select('*');
 		$this->db->from('user');
 		$this->db->order_by('id_user');
+		return $this->db->get();
+	}
+
+	// R24
+	public function getR24()
+	{
+		$this->db->select('*');
+		$this->db->from('setting_r24');
+		$this->db->join('kecamatan', 'kecamatan.id_kecamatan=setting_r24.id_kecamatan', 'LEFT');
+		$this->db->order_by('id_r24');
 		return $this->db->get();
 	}
 }

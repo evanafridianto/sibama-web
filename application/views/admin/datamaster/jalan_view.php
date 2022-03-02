@@ -7,9 +7,9 @@
                         Data</span></button>
                 <button type="button" class="btn btn-success waves-effect waves-light" onclick="import_excel();"><i
                         class=" fa fa-upload m-r-5"></i> <span>Import
-                        Excel</span></button>
+                        XLSX</span></button>
                 <a href="<?= site_url('admin/jalan/export'); ?>" class="btn btn-success waves-effect waves-light"><i
-                        class="fa  fa-download m-r-5"></i> Export Excel</a>
+                        class="fa  fa-download m-r-5"></i> Export XLSX</a>
                 <button type=" button" class="btn btn-inverse waves-effect waves-light" onclick="truncate_table();"><i
                         class="fa fa-scissors m-r-5"></i> <span>Truncate
                         Tabel</span></button>
@@ -63,7 +63,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <input type="file" name="import_excel" required class="form-control" accept=".xlsx">
-                                <span class="form-text text-danger"></span>
+                                <small class="form-text text-danger"></small>
                             </div>
                         </div>
                     </div>
@@ -87,46 +87,34 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h4 class="modal-title">Form Data</h4>
             </div>
-            <form action="#" id="form">
-                <div class="modal-body">
-                    <div class="row">
-                        <input type="hidden" class="form-control" name="get_idkelurahan" id="get_idkelurahan">
-                        <input type="hidden" class="form-control " name="id" />
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Nama Jalan</label>
-                                <input type="text" class="form-control" disabled="disabled" name="nama_jalan" required
-                                    placeholder="Masukkan Nama Jalan">
-                                <span class="form-text text-danger"></span>
-                            </div>
-                        </div>
+            <div class="modal-body">
+                <form action="#" id="form">
+                    <input type="hidden" class="form-control" name="get_idkelurahan" id="get_idkelurahan">
+                    <input type="hidden" class="form-control " name="id_jalan" />
+                    <div class="form-group">
+                        <label>Nama Jalan</label>
+                        <input type="text" class="form-control" disabled="disabled" name="nama_jalan" required
+                            placeholder="Masukkan Nama Jalan">
+                        <small class="form-text text-danger"></small>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Kecamatan</label>
-                                <select name="id_kecamatan" id="id_kecamatan" class="form-control" disabled="disabled">
-                                    <option value="">--Pilih Kecamatan--</option>
-                                    <?php foreach ($data_kecamatan as $row) : ?>
-                                    <option value="<?= $row['id_kecamatan']; ?>">
-                                        <?= $row['nama_kecamatan']; ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                                <span class="form-text text-danger"></span>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label>Kecamatan</label>
+                        <select name="id_kecamatan" id="id_kecamatan" class="form-control" disabled="disabled">
+                            <option value="">--Pilih Kecamatan--</option>
+                            <?php foreach ($kecamatan as $row) : ?>
+                            <option value="<?= $row->id_kecamatan ?>">
+                                <?= $row->nama_kecamatan ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <small class="form-text text-danger"></small>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Kelurahan</label>
-                                <select name="id_kelurahan" id="id_kelurahan" class="form-control" disabled="disabled">
-                                    <option value="">--Pilih Kelurahan--</option>
+                    <div class="form-group">
+                        <label>Kelurahan</label>
+                        <select name="id_kelurahan" id="id_kelurahan" class="form-control" disabled="disabled">
+                            <option value="">--Pilih Kelurahan--</option>
 
-                                </select>
-                                <span class="form-text text-danger"></span>
-                            </div>
-                        </div>
+                        </select>
+                        <small class="form-text text-danger"></small>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Batal</button>
@@ -136,9 +124,10 @@
                             onclick="allowEdit();">Edit
                             Data</button>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
+</div>
 </div><!-- /.modal -->
-<script src="<?= site_url('assets/crud.jalan.js') ?>"></script>
+<script src="<?= base_url('assets/app/jalan.js') ?>"></script>

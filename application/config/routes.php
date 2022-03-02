@@ -49,23 +49,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'web';
+$route['default_controller'] = 'WebController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 // default web
-$route['/'] = 'web';
-$route['about'] = 'web/about';
-$route['feedback'] = 'web/feedback';
-// application
-$route['admin/data-master/drainase'] = 'admin/drainase';
-$route['admin/data-master/jalan'] = 'admin/jalan';
-$route['admin/data-master/kelurahan'] = 'admin/kelurahan';
-$route['admin/data-master/kecamatan'] = 'admin/kecamatan';
-$route['admin/data-master/user'] = 'admin/user';
-
-// data kategori 
-$route['admin/data-kategori'] = 'admin/kategori';
+$route['/'] = 'WebController';
+// admin 
+$route['admin/dashboard'] = 'admin/DashboardController';
+$route['admin/data-master/drainase'] = 'admin/DrainaseController';
+$route['admin/data-master/jalan'] = 'admin/JalanController';
+$route['admin/data-master/kelurahan'] = 'admin/KelurahanController';
+$route['admin/data-master/kecamatan'] = 'admin/KecamatanController';
+$route['admin/data-master/user'] = 'admin/UserController';
+$route['admin/data-master/kondisi-penanganan'] = 'admin/KondisiPenangananDrainaseController';
+$route['admin/r24'] = 'admin/R24Controller';
+$route['admin/peta'] = 'admin/PetaController';
 // login 
-$route['admin/login'] = 'admin/auth';
-$route['admin'] = 'admin/auth';
+$route['login'] = 'admin/AuthController';

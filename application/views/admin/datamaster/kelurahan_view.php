@@ -7,9 +7,9 @@
                         Data</span></button>
                 <button type="button" class="btn btn-success waves-effect waves-light" onclick="import_excel();"><i
                         class=" fa fa-upload m-r-5"></i> <span>Import
-                        Excel</span></button>
+                        XLSX</span></button>
                 <a href="<?= site_url('admin/kelurahan/export'); ?>" class="btn btn-success waves-effect waves-light"><i
-                        class="fa  fa-download m-r-5"></i> Export Excel</a>
+                        class="fa  fa-download m-r-5"></i> Export XLSX</a>
 
                 <button type=" button" class="btn btn-inverse waves-effect waves-light" onclick="truncate_table();"><i
                         class="fa fa-scissors m-r-5"></i> <span>Truncate
@@ -64,7 +64,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <input type="file" name="import_excel" required class="form-control" accept=".xlsx">
-                                <span class="form-text text-danger"></span>
+                                <small class="form-text text-danger"></small>
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                                 <label>Nama Kelurahan</label>
                                 <input type="text" class="form-control" disabled="disabled" name="nama_kelurahan"
                                     required placeholder="Masukkan Nama Kelurahan">
-                                <span class="form-text text-danger"></span>
+                                <small class="form-text text-danger"></small>
                             </div>
                         </div>
                     </div>
@@ -107,12 +107,12 @@
                                 <label>Kecamatan</label>
                                 <select name="id_kecamatan" id="id_kecamatan" class="form-control" disabled="disabled">
                                     <option value="">--Pilih Kecamatan--</option>
-                                    <?php foreach ($data_kecamatan as $row) : ?>
-                                    <option value="<?= $row['id_kecamatan']; ?>">
-                                        <?= $row['nama_kecamatan']; ?></option>
+                                    <?php foreach ($kecamatan as $row) : ?>
+                                    <option value="<?= $row->id_kecamatan ?>">
+                                        <?= $row->nama_kecamatan ?></option>
                                     <?php endforeach; ?>
                                 </select>
-                                <span class="form-text text-danger"></span>
+                                <small class="form-text text-danger"></small>
                             </div>
                         </div>
                     </div>
@@ -129,4 +129,4 @@
         </div>
     </div>
 </div><!-- /.modal -->
-<script src="<?= base_url('assets/crud.kelurahan.js') ?>"></script>
+<script src="<?= base_url('assets/app/kelurahan.js') ?>"></script>

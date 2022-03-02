@@ -10,19 +10,19 @@
                         Data</span></button>
                 <button type="button" class="btn btn-success waves-effect waves-light" onclick="import_excel();"><i
                         class=" fa fa-upload m-r-5"></i> <span>Import
-                        Excel</span></button>
+                        XLSX</span></button>
                 <a href="<?= site_url('admin/drainase/export'); ?>" class="btn btn-success waves-effect waves-light"><i
-                        class="fa  fa-download m-r-5"></i> Export Excel</a>
+                        class="fa  fa-download m-r-5"></i> Export XLSX</a>
                 <!-- <a href="<?= site_url(); ?>admin/drainase/export_pdf" class="btn btn-purple waves-effect waves-light"
                         target="_BLANK"><i class="fa fa-file-pdf-o  m-r-5"></i> Export PDF</a> -->
                 <button type=" button" class="btn btn-inverse waves-effect waves-light" onclick="truncate_table();"><i
                         class="fa fa-scissors m-r-5"></i> <span>Truncate
                         Tabel</span></button>
                 <button type=" button" class="btn btn-custom waves-effect waves-light" onclick="reload_table();"><i
-                        class="fa  fa-refresh m-r-5"></i> <span>Refresh Tabel</span></button>
+                        class="fa  fa-refresh m-r-5"></i> <span>Refresh Tabel </span></button>
 
                 <button style="display: none;" type=" button"
-                    class="btn btn-danger waves-effect waves-light hapus-kabeh" onclick="delete_all();"><i
+                    class="btn btn-danger waves-effect waves-light hapus-kabeh" onclick="delete_multi();"><i
                         class="fa fa-times m-r-5"></i> <span>Hapus</span></button>
             </div>
 
@@ -39,7 +39,7 @@
                         <th>Longitude Awal</th>
                         <th>Latitude Akhir</th>
                         <th>Longitude Akhir</th>
-                        <th>Lajur Drainase</th>
+                        <th>Jalur Jalan</th>
                         <th class="text-center">Aksi</th>
                     </tr>
                 </thead>
@@ -74,7 +74,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <input type="file" name="import_excel" required class="form-control" accept=".xlsx">
-                                <span class="form-text text-danger"></span>
+                                <small class="form-text text-danger"></small>
                             </div>
                         </div>
                     </div>

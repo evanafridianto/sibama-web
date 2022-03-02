@@ -3,18 +3,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Dashboard_model extends CI_Model
 {
-
-	function get_drainase_rusak()
+	function getCountDrainaseKelurahan()
 	{
-		$this->db->select('*');
-		$this->db->from('drainase');
+		$this->db->select('nama_kelurahan, COUNT(id_drainase) as total');
 		$this->db->join('jalan', 'jalan.id_jalan=drainase.id_jalan', 'LEFT');
 		$this->db->join('kelurahan', 'jalan.id_kelurahan=kelurahan.id_kelurahan', 'LEFT');
-		$this->db->join('kecamatan', 'kelurahan.id_kecamatan=kecamatan.id_kecamatan', 'LEFT');
-		$this->db->join('kondisi_fisik', 'drainase.id_kondisi_fisik=kondisi_fisik.id_kondisi_fisik', 'LEFT');
-		$this->db->join('lajur_drainase', 'drainase.id_lajur_drainase=lajur_drainase.id_lajur_drainase', 'LEFT');
-		$this->db->where('drainase.id_kondisi_fisik=3');
-		$query = $this->db->get();
+		$this->db->group_by('nama_kelurahan');
+		$this->db->order_by('total', 'desc');
+		$query =  $this->db->get('drainase');
 		return $query->result_array();
 	}
 

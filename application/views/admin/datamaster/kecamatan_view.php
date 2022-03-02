@@ -48,7 +48,7 @@
                                 <label>Nama Kecamatan </label>
                                 <input type="text" class="form-control" disabled="disabled" name="nama_kecamatan"
                                     required placeholder="Masukkan Nama Kecamatan">
-                                <span class=" form-text text-danger"></span>
+                                <small class=" form-text text-danger"></small>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                                 <label>File GeoJSON</label>
                                 <input type="file" class="form-control" disabled="disabled" name="file_geojson" required
                                     placeholder="Masukkan File GeoJSON">
-                                <span class=" form-text text-danger"></span>
+                                <small class=" form-text text-danger"></small>
                             </div>
                         </div>
                     </div>
@@ -75,4 +75,4 @@
         </div>
     </div>
 </div><!-- /.modal -->
-<script src="<?= base_url('assets/crud.kecamatan.js') ?>"></script>
+<script src="<?= base_url('assets/app/kecamatan.js') ?>"></script>

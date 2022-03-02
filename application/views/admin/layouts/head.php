@@ -35,8 +35,10 @@
     <link href="<?= base_url() ?>assets/admin/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css"
         rel="stylesheet">
     <!-- Select2 -->
-    <script src="<?= base_url() ?>assets/admin/plugins/select2/js/select2.min.js" type="text/javascript"></script>
     <link href="<?= base_url() ?>assets/admin/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <!-- Select -->
+    <link href="<?= base_url() ?>assets/admin/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" />
+
     <!-- App css -->
     <link href="<?= base_url() ?>assets/admin/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="<?= base_url() ?>assets/admin/css/core.css" rel="stylesheet" type="text/css" />

@@ -1,4 +1,4 @@
 <footer class="footer text-right">
-    <strong>Copyright &copy; <?php echo date('Y') . " " ?>. Sistem Informasi Banyu Malang</strong> All
+    <strong>Copyright &copy; <?php echo date('Y') . " " . SITE_NAME ?></strong>. All
     rights reserved
 </footer>
