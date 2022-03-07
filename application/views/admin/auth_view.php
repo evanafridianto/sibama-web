@@ -69,7 +69,7 @@
                                             <div class="col-xs-12">
                                                 <button type="button"
                                                     class="btn btn-md btn-block btn-primary waves-effect waves-light"
-                                                    onclick="login()"><i class="fa  fa-sign-in m-r-5"></i>
+                                                    onclick="login()"><i class="fa fa-sign-in m-r-5"></i>
                                                     <span>Log In </span></button>
                                             </div>
                                         </div>

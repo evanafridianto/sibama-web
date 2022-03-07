@@ -78,6 +78,10 @@ var searchControl = new L.Control.Search({
     },
 });
 
+map.on("zoomstart", function(e) {
+    console.log(e);
+});
+
 searchControl
     .on("search:locationfound", function(e) {
         //console.log('search:locationfound', );
@@ -147,14 +151,14 @@ function onEachFeature(feature, layer) {
             feature.properties["r24"] +
             "(mm)" +
             "</td></tr>" +
+            "<tr><th>Jalur Jalan</th><td>" +
+            feature.properties["jalur_jalan"] +
+            "</td></tr>" +
             "<tr><th>Tipe Drainase</th><td>" +
             feature.properties["tipe"] +
             "</td></tr>" +
             "<tr><th>Panjang Drainase</th><td>" +
             feature.properties["panjang"] +
-            "</td></tr>" +
-            "<tr><th>Arah Air</th><td>" +
-            feature.properties["arah_air"] +
             "</td></tr>" +
             "<tr><th>Kondisi Fisik</th><td>" +
             feature.properties["kondisi_fisik"] +

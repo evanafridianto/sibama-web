@@ -28,7 +28,7 @@ class JsonController extends CI_Controller
 					$q = $v * floatval($row->luas_penampung); // (m3/jam)
 					// end q  
 
-					// cia 
+					// limpasan 
 					$tc = pow((0.872 *  pow(floatval($row->panjang), 2)) / (1000 *  floatval($row->slope)), 0.385);
 					$i = (floatval($row->r24) / 24) * pow(24 / floatval($tc), 2 / 3); // intensitas hujan (mm/jam)
 					$cia = 0.278 * floatval(0.6) * $i * floatval($row->catchment_area);
