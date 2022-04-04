@@ -78,6 +78,8 @@ class JsonController extends CI_Controller
 								"keliling_penampung" => $row->keliling_penampung,
 								"panjang" => $row->panjang,
 								"catchment_area" => $row->catchment_area,
+								'foto_exists' => file_exists('upload/foto/' . $row->file_foto),
+								'dimensi_exists' => file_exists('upload/dimensi/' . $row->file_dimensi),
 								"file_foto" => $row->file_foto,
 								"file_dimensi" => $row->file_dimensi,
 								"date" => $row->date,

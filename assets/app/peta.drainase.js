@@ -78,10 +78,6 @@ var searchControl = new L.Control.Search({
     },
 });
 
-map.on("zoomstart", function(e) {
-    console.log(e);
-});
-
 searchControl
     .on("search:locationfound", function(e) {
         //console.log('search:locationfound', );
@@ -116,9 +112,11 @@ function onEachFeature(feature, layer) {
     if (
         feature.properties["file_dimensi"] == "" ||
         feature.properties["file_dimensi"] == "-" ||
-        feature.properties["file_dimensi"] == "null"
+        feature.properties["file_dimensi"] == "null" ||
+        feature.properties["dimensi_exists"] == false
     ) {
-        dimensi = $("meta[name=app-url]").attr("content") + "upload/noimage.jpg";
+        dimensi = "https://ui-avatars.com/api/?name=No+Image";
+        // dimensi = $("meta[name=app-url]").attr("content") + "upload/noimage.jpg";
     } else {
         dimensi =
             $("meta[name=app-url]").attr("content") +
@@ -128,7 +126,8 @@ function onEachFeature(feature, layer) {
     if (
         feature.properties["file_foto"] == "" ||
         feature.properties["file_foto"] == "-" ||
-        feature.properties["file_foto"] == "null"
+        feature.properties["file_foto"] == "null" ||
+        feature.properties["foto_exists"] == false
     ) {
         foto = $("meta[name=app-url]").attr("content") + "upload/noimage.jpg";
     } else {
