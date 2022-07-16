@@ -8,7 +8,7 @@ $(function() {
         // Load data for the table's content from an Ajax source
         ajax: {
             url: $("meta[name=app-url]").attr("content") +
-                "admin/r24controller/show_all",
+                "admin/R24Controller/show_all",
             type: "GET",
         },
     });
@@ -61,7 +61,7 @@ function edit_r24(id) {
     //Ajax Load data from ajax
     $.ajax({
         url: $("meta[name=app-url]").attr("content") +
-            "admin/r24controller/edit/" +
+            "admin/R24Controller/edit/" +
             id,
         type: "GET",
         dataType: "JSON",
@@ -101,7 +101,7 @@ function save() {
     $("#btnSave").attr("disabled", true); //set button disable
     // ajax adding data to database
     $.ajax({
-        url: $("meta[name=app-url]").attr("content") + "admin/r24controller/save",
+        url: $("meta[name=app-url]").attr("content") + "admin/R24Controller/save",
         type: "POST",
         data: $("#form").serialize(),
         dataType: "JSON",
@@ -171,7 +171,7 @@ function delete_r24(id) {
         function() {
             $.ajax({
                 url: $("meta[name=app-url]").attr("content") +
-                    "admin/r24controller/delete/" +
+                    "admin/R24Controller/delete/" +
                     id,
                 type: "POST",
                 dataType: "JSON",

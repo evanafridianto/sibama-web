@@ -10,7 +10,7 @@ $(document).ready(function() {
         autoWidth: false,
         ajax: {
             url: $("meta[name=app-url]").attr("content") +
-                "admin/kondisipenanganandrainasecontroller/show_all/kondisi_fisik",
+                "admin/KondisiPenangananDrainaseController/show_all/kondisi_fisik",
             type: "GET",
         },
     });
@@ -20,7 +20,7 @@ $(document).ready(function() {
         autoWidth: false,
         ajax: {
             url: $("meta[name=app-url]").attr("content") +
-                "admin/kondisipenanganandrainasecontroller/show_all/kondisi_sedimen",
+                "admin/KondisiPenangananDrainaseController/show_all/kondisi_sedimen",
             type: "GET",
         },
     });
@@ -30,7 +30,7 @@ $(document).ready(function() {
         autoWidth: false,
         ajax: {
             url: $("meta[name=app-url]").attr("content") +
-                "admin/kondisipenanganandrainasecontroller/show_all/penanganan",
+                "admin/KondisiPenangananDrainaseController/show_all/penanganan",
             type: "GET",
         },
     });
@@ -98,21 +98,21 @@ function edit_data(table, id) {
         $("#label_kategori").text("Nama Kondisi Fisik");
         url =
             $("meta[name=app-url]").attr("content") +
-            "admin/kondisipenanganandrainasecontroller/edit/kondisi_fisik/" +
+            "admin/KondisiPenangananDrainaseController/edit/kondisi_fisik/" +
             id;
         $('[name="btnSave"]').attr("onclick", "save('kondisi_fisik')");
     } else if (table == "kondisi_sedimen") {
         $("#label_kategori").text("Nama Kondisi Sedimen");
         url =
             $("meta[name=app-url]").attr("content") +
-            "admin/kondisipenanganandrainasecontroller/edit/kondisi_sedimen/" +
+            "admin/KondisiPenangananDrainaseController/edit/kondisi_sedimen/" +
             id;
         $('[name="btnSave"]').attr("onclick", "save('kondisi_sedimen')");
     } else {
         $("#label_kategori").text("Nama Penanganan");
         url =
             $("meta[name=app-url]").attr("content") +
-            "admin/kondisipenanganandrainasecontroller/edit/penanganan/" +
+            "admin/KondisiPenangananDrainaseController/edit/penanganan/" +
             id;
         $('[name="btnSave"]').attr("onclick", "save('penanganan')");
     }
@@ -163,17 +163,17 @@ function save(table) {
         reload = "kondisi_fisik";
         url =
             $("meta[name=app-url]").attr("content") +
-            "admin/kondisipenanganandrainasecontroller/save/kondisi_fisik";
+            "admin/KondisiPenangananDrainaseController/save/kondisi_fisik";
     } else if (table == "kondisi_sedimen") {
         reload = "kondisi_sedimen";
         url =
             $("meta[name=app-url]").attr("content") +
-            "admin/kondisipenanganandrainasecontroller/save/kondisi_sedimen";
+            "admin/KondisiPenangananDrainaseController/save/kondisi_sedimen";
     } else {
         reload = "penanganan";
         url =
             $("meta[name=app-url]").attr("content") +
-            "admin/kondisipenanganandrainasecontroller/save/penanganan";
+            "admin/KondisiPenangananDrainaseController/save/penanganan";
     }
     // ajax adding data to database
     $.ajax({
@@ -237,19 +237,19 @@ function delete_data(table, id) {
         reload = "kondisi_fisik";
         url =
             $("meta[name=app-url]").attr("content") +
-            "admin/kondisipenanganandrainasecontroller/delete/kondisi_fisik/" +
+            "admin/KondisiPenangananDrainaseController/delete/kondisi_fisik/" +
             id;
     } else if (table == "kondisi_sedimen") {
         reload = "kondisi_sedimen";
         url =
             $("meta[name=app-url]").attr("content") +
-            "admin/kondisipenanganandrainasecontroller/delete/kondisi_sedimen/" +
+            "admin/KondisiPenangananDrainaseController/delete/kondisi_sedimen/" +
             id;
     } else {
         reload = "penanganan";
         url =
             $("meta[name=app-url]").attr("content") +
-            "admin/kondisipenanganandrainasecontroller/delete/penanganan/" +
+            "admin/KondisiPenangananDrainaseController/delete/penanganan/" +
             id;
     }
     swal({

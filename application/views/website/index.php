@@ -55,12 +55,12 @@
                                 class="fa fa-download white"></i>&nbsp;&nbsp;Download <span class="caret">
                             </span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?= site_url('json/data/drainase/download') ?>">drainase.geojson</a>
+                            <li><a href="<?= site_url('jsoncontroller/data/drainase/download') ?>">drainase.geojson</a>
                             </li>
-                            <li><a href="<?= site_url('json/data/jalan/download') ?>">jalan.json</a>
+                            <li><a href="<?= site_url('jsoncontroller/data/jalan/download') ?>">jalan.json</a>
                             </li>
-                            <li><a href="<?= site_url('json/data/kelurahan/download') ?>">kelurahan.json</a>
-                            <li><a href="<?= site_url('json/data/kecamatan/download') ?>">kecamatan.json</a>
+                            <li><a href="<?= site_url('jsoncontroller/data/kelurahan/download') ?>">kelurahan.json</a>
+                            <li><a href="<?= site_url('jsoncontroller/data/kecamatan/download') ?>">kecamatan.json</a>
                             </li>
                         </ul>
                     </li>
@@ -109,7 +109,7 @@
     <script src="<?= base_url() ?>assets/leaflet/leaflet-panel-layers/src/leaflet-panel-layers.js"></script>
     <script src="<?= base_url() ?>assets/leaflet/leaflet-search/leaflet-search.js"></script>
     <!-- Data Json  -->
-    <script src="<?= site_url('jsoncontroller/data/kecamatan/list') ?>"></script>
+    <script src="<?= site_url('JsonController/data/kecamatan/list') ?>"></script>
     <!-- App Js  -->
     <script src="<?= base_url('assets/app/peta.drainase.js') ?>"></script>
 </body>

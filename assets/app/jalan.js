@@ -8,7 +8,7 @@ $(document).ready(function() {
         // Load data for the table's content from an Ajax source
         ajax: {
             url: $("meta[name=app-url]").attr("content") +
-                "admin/jalancontroller/show_all",
+                "admin/JalanController/show_all",
             type: "GET",
         },
     });
@@ -29,7 +29,7 @@ $("#id_kecamatan").change(function() {
     $.ajax({
         type: "POST",
         url: $("meta[name=app-url]").attr("content") +
-            "admin/jalancontroller/get_kelurahan",
+            "admin/JalanController/get_kelurahan",
         data: {
             id: id_kecamatan,
         },
@@ -82,7 +82,7 @@ function save_excel() {
     // var formData = new FormData($("#form_import")[0]);
     $.ajax({
         // url: $("meta[name=app-url]").attr("content") + "admin/drainase/import_csv",
-        url: $("meta[name=app-url]").attr("content") + "admin/jalancontroller/import",
+        url: $("meta[name=app-url]").attr("content") + "admin/JalanController/import",
         type: "POST",
         data: new FormData($("#form_import_excel")[0]),
         cache: false,
@@ -197,7 +197,7 @@ function edit_jalan(id) {
     //Ajax Load data from ajax
     $.ajax({
         url: $("meta[name=app-url]").attr("content") +
-            "admin/jalancontroller/edit/" +
+            "admin/JalanController/edit/" +
             id,
         type: "GET",
         dataType: "JSON",
@@ -238,7 +238,7 @@ function save() {
     $("#btnSave").attr("disabled", true); //set button disable
     // ajax adding data to database
     $.ajax({
-        url: $("meta[name=app-url]").attr("content") + "admin/jalancontroller/save",
+        url: $("meta[name=app-url]").attr("content") + "admin/JalanController/save",
         type: "POST",
         data: $("#form").serialize(),
         dataType: "JSON",
@@ -308,7 +308,7 @@ function delete_jalan(id) {
         function() {
             $.ajax({
                 url: $("meta[name=app-url]").attr("content") +
-                    "admin/jalancontroller/delete/" +
+                    "admin/JalanController/delete/" +
                     id,
                 type: "POST",
                 dataType: "JSON",
@@ -374,7 +374,7 @@ function truncate_table(params) {
         function() {
             $.ajax({
                 url: $("meta[name=app-url]").attr("content") +
-                    "admin/jalancontroller/truncate",
+                    "admin/JalanController/truncate",
                 method: "POST",
                 beforeSend: function() {
                     swal({

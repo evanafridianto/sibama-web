@@ -8,7 +8,7 @@ $(document).ready(function() {
         // Load data for the table's content from an Ajax source
         ajax: {
             url: $("meta[name=app-url]").attr("content") +
-                "admin/usercontroller/show_all",
+                "admin/UserController/show_all",
             type: "GET",
         },
     });
@@ -43,7 +43,7 @@ function save() {
     var formData = new FormData($("#form")[0]);
     // ajax adding data to database
     $.ajax({
-        url: $("meta[name=app-url]").attr("content") + "admin/usercontroller/save",
+        url: $("meta[name=app-url]").attr("content") + "admin/UserController/save",
         type: "POST",
         data: formData,
         contentType: false,
@@ -115,7 +115,7 @@ function delete_user(id) {
         function() {
             $.ajax({
                 url: $("meta[name=app-url]").attr("content") +
-                    "admin/usercontroller/delete/" +
+                    "admin/UserController/delete/" +
                     id,
                 type: "POST",
                 dataType: "JSON",

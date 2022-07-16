@@ -9,7 +9,7 @@ $(document).ready(function() {
         // Load data for the table's content from an Ajax source
         ajax: {
             url: $("meta[name=app-url]").attr("content") +
-                "admin/kecamatancontroller/show_all",
+                "admin/KecamatanController/show_all",
             type: "GET",
         },
     });
@@ -55,7 +55,7 @@ function edit_kecamatan(id) {
     //Ajax Load data from ajax
     $.ajax({
         url: $("meta[name=app-url]").attr("content") +
-            "admin/kecamatancontroller/edit/" +
+            "admin/KecamatanController/edit/" +
             id,
         type: "GET",
         dataType: "JSON",
@@ -91,7 +91,7 @@ function save() {
     // ajax adding data to database
     $.ajax({
         url: $("meta[name=app-url]").attr("content") +
-            "admin/kecamatancontroller/save",
+            "admin/KecamatanController/save",
         type: "POST",
         data: $("#form").serialize(),
         dataType: "JSON",
@@ -161,7 +161,7 @@ function delete_kecamatan(id) {
         function() {
             $.ajax({
                 url: $("meta[name=app-url]").attr("content") +
-                    "admin/kecamatancontroller/delete/" +
+                    "admin/KecamatanController/delete/" +
                     id,
                 type: "POST",
                 dataType: "JSON",

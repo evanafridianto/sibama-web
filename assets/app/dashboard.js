@@ -6,7 +6,7 @@ $(function() {
         // Load data for the table's content from an Ajax source
         ajax: {
             url: $("meta[name=app-url]").attr("content") +
-                "admin/dashboardcontroller/drainase_kelurahan",
+                "admin/DashboardController/drainase_kelurahan",
             type: "GET",
         },
     });
@@ -15,7 +15,7 @@ $(function() {
 $.ajax({
     type: "GET",
     url: $("meta[name=app-url]").attr("content") +
-        "jsoncontroller/data/drainase/line",
+        "JsonController/data/drainase/line",
     dataType: "JSON",
     success: function(data) {
         let melimpah = 0;

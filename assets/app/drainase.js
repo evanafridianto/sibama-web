@@ -8,7 +8,7 @@ $(function() {
         // Load data for the table's content from an Ajax source
         ajax: {
             url: $("meta[name=app-url]").attr("content") +
-                "admin/drainasecontroller/show_all",
+                "admin/DrainaseController/show_all",
             type: "GET",
         },
         columnDefs: [{
@@ -132,7 +132,7 @@ function save_excel() {
     $("#btn-import").attr("disabled", true); //set button disable
     $.ajax({
         url: $("meta[name=app-url]").attr("content") +
-            "admin/drainasecontroller/import",
+            "admin/DrainaseController/import",
         type: "POST",
         data: new FormData($("#form_import_excel")[0]),
         cache: false,
@@ -258,7 +258,7 @@ function edit_drainase(id) {
     //Ajax Load data from ajax
     $.ajax({
         url: $("meta[name=app-url]").attr("content") +
-            "admin/drainasecontroller/edit/" +
+            "admin/DrainaseController/edit/" +
             id,
         type: "GET",
         dataType: "JSON",
@@ -368,7 +368,7 @@ function save() {
     var formData = new FormData($("#form")[0]);
     // ajax adding data to database
     $.ajax({
-        url: $("meta[name=app-url]").attr("content") + "admin/drainasecontroller/save",
+        url: $("meta[name=app-url]").attr("content") + "admin/DrainaseController/save",
         type: "POST",
         data: formData,
         contentType: false,
@@ -438,7 +438,7 @@ function delete_drainase(id) {
         function() {
             $.ajax({
                 url: $("meta[name=app-url]").attr("content") +
-                    "admin/drainasecontroller/delete/" +
+                    "admin/DrainaseController/delete/" +
                     id,
                 type: "POST",
                 dataType: "JSON",
@@ -505,7 +505,7 @@ function truncate_table(params) {
         function() {
             $.ajax({
                 url: $("meta[name=app-url]").attr("content") +
-                    "admin/drainasecontroller/truncate",
+                    "admin/DrainaseController/truncate",
                 method: "POST",
                 beforeSend: function() {
                     swal({
@@ -577,7 +577,7 @@ function delete_multi() {
                 });
                 $.ajax({
                     url: $("meta[name=app-url]").attr("content") +
-                        "admin/drainasecontroller/delete_multi",
+                        "admin/DrainaseController/delete_multi",
                     method: "POST",
                     data: {
                         checkbox_value: checkbox_value,

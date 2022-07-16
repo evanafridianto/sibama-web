@@ -74,8 +74,6 @@
                                             </div>
                                         </div>
 
-                                        <!-- </form> -->
-                                        <!-- <?= password_hash('admin', PASSWORD_DEFAULT)  ?> -->
                                 </div>
                             </div>
                         </div>

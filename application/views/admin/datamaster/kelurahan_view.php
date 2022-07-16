@@ -8,8 +8,9 @@
                 <button type="button" class="btn btn-success waves-effect waves-light" onclick="import_excel();"><i
                         class=" fa fa-upload m-r-5"></i> <span>Import
                         XLSX</span></button>
-                <a href="<?= site_url('admin/kelurahan/export'); ?>" class="btn btn-success waves-effect waves-light"><i
-                        class="fa  fa-download m-r-5"></i> Export XLSX</a>
+                <a href="<?= site_url('admin/KelurahanController/export'); ?>"
+                    class="btn btn-success waves-effect waves-light"><i class="fa  fa-download m-r-5"></i> Export
+                    XLSX</a>
 
                 <button type=" button" class="btn btn-inverse waves-effect waves-light" onclick="truncate_table();"><i
                         class="fa fa-scissors m-r-5"></i> <span>Truncate

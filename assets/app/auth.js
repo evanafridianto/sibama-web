@@ -3,7 +3,7 @@ function login() {
     $("#btnLogin").attr("disabled", true); //set button disable
     // ajax adding data to database
     $.ajax({
-        url: $("meta[name=app-url]").attr("content") + "admin/authcontroller/check",
+        url: $("meta[name=app-url]").attr("content") + "admin/AuthController/check",
         type: "POST",
         data: $("#form_login").serialize(),
         dataType: "JSON",

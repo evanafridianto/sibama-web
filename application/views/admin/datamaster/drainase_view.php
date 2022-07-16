@@ -11,8 +11,9 @@
                 <button type="button" class="btn btn-success waves-effect waves-light" onclick="import_excel();"><i
                         class=" fa fa-upload m-r-5"></i> <span>Import
                         XLSX</span></button>
-                <a href="<?= site_url('admin/drainase/export'); ?>" class="btn btn-success waves-effect waves-light"><i
-                        class="fa  fa-download m-r-5"></i> Export XLSX</a>
+                <a href="<?= site_url('admin/DrainaseController/export'); ?>"
+                    class="btn btn-success waves-effect waves-light"><i class="fa  fa-download m-r-5"></i> Export
+                    XLSX</a>
                 <!-- <a href="<?= site_url(); ?>admin/drainase/export_pdf" class="btn btn-purple waves-effect waves-light"
                         target="_BLANK"><i class="fa fa-file-pdf-o  m-r-5"></i> Export PDF</a> -->
                 <button type=" button" class="btn btn-inverse waves-effect waves-light" onclick="truncate_table();"><i

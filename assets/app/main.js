@@ -30,7 +30,7 @@ function profil_user(id) {
     $(".modal-title").text("Profil"); // Set title to Bootstrap modal title
     $.ajax({
         url: $("meta[name=app-url]").attr("content") +
-            "admin/usercontroller/edit/" +
+            "admin/UserController/edit/" +
             id,
         type: "GET",
         dataType: "JSON",
@@ -83,7 +83,7 @@ function save_profil() {
     var formData = new FormData($("#form_profil_user")[0]);
     $.ajax({
         url: $("meta[name=app-url]").attr("content") +
-            "admin/usercontroller/update/profil",
+            "admin/UserController/update/profil",
         type: "POST",
         data: formData,
         contentType: false,
@@ -151,7 +151,7 @@ function save_pass() {
     // ajax adding data to database
     $.ajax({
         url: $("meta[name=app-url]").attr("content") +
-            "admin/usercontroller/update/password",
+            "admin/UserController/update/password",
         type: "POST",
         data: $("#form_ganti_pass").serialize(),
         dataType: "JSON",
@@ -221,7 +221,7 @@ function logout() {
         function() {
             $.ajax({
                 url: $("meta[name=app-url]").attr("content") +
-                    "admin/authcontroller/logout",
+                    "admin/AuthController/logout",
                 type: "POST",
                 success: function(data) {
                     swal({

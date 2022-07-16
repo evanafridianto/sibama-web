@@ -8,7 +8,7 @@ $(document).ready(function() {
         // Load data for the table's content from an Ajax source
         ajax: {
             url: $("meta[name=app-url]").attr("content") +
-                "admin/kelurahancontroller/show_all",
+                "admin/KelurahanController/show_all",
             type: "GET",
         },
     });
@@ -43,7 +43,7 @@ function save_excel() {
     $.ajax({
         // url: $("meta[name=app-url]").attr("content") + "admin/drainase/import_csv",
         url: $("meta[name=app-url]").attr("content") +
-            "admin/kelurahancontroller/import",
+            "admin/KelurahanController/import",
         type: "POST",
         data: new FormData($("#form_import_excel")[0]),
         cache: false,
@@ -158,7 +158,7 @@ function edit_kelurahan(id) {
     //Ajax Load data from ajax
     $.ajax({
         url: $("meta[name=app-url]").attr("content") +
-            "admin/kelurahancontroller/edit/" +
+            "admin/KelurahanController/edit/" +
             id,
         type: "GET",
         dataType: "JSON",
@@ -195,7 +195,7 @@ function save() {
     // ajax adding data to database
     $.ajax({
         url: $("meta[name=app-url]").attr("content") +
-            "admin/kelurahancontroller/save",
+            "admin/KelurahanController/save",
         type: "POST",
         data: $("#form").serialize(),
         dataType: "JSON",
@@ -265,7 +265,7 @@ function delete_kelurahan(id) {
         function() {
             $.ajax({
                 url: $("meta[name=app-url]").attr("content") +
-                    "admin/kelurahancontroller/delete/" +
+                    "admin/KelurahanController/delete/" +
                     id,
                 type: "POST",
                 dataType: "JSON",
@@ -331,7 +331,7 @@ function truncate_table(params) {
         function() {
             $.ajax({
                 url: $("meta[name=app-url]").attr("content") +
-                    "admin/kelurahancontroller/truncate",
+                    "admin/KelurahanController/truncate",
                 method: "POST",
                 beforeSend: function() {
                     swal({

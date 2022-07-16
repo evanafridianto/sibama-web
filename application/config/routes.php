@@ -55,6 +55,8 @@ $route['translate_uri_dashes'] = FALSE;
 
 // default web
 $route['/'] = 'WebController';
+
+
 // admin 
 $route['admin/dashboard'] = 'admin/DashboardController';
 $route['admin/data-master/drainase'] = 'admin/DrainaseController';

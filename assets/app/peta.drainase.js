@@ -34,7 +34,7 @@ for (i = 0; i < dataKecamatan.length; i++) {
         layer: new L.GeoJSON.AJAX(
             [
                 $("meta[name=app-url]").attr("content") +
-                "jsoncontroller/data/drainase/line/" +
+                "JsonController/data/drainase/line/" +
                 data.id_kecamatan,
             ], {
                 style: function(feature) {
@@ -105,8 +105,6 @@ function resetHighlight(e) {
 }
 
 function onEachFeature(feature, layer) {
-    var URL = window.location.href; //get the url
-    var arr = URL.split("/"); //split (/)
     var dimensi;
     var foto;
     if (
@@ -182,7 +180,7 @@ function onEachFeature(feature, layer) {
             dimensi +
             "' alt='' class='img-responsive img-thumbnail' style='max-width: 100%;height: 100px;'></a></td></tr>";
         // button aksi for admin only
-        if (feature.properties["admin"] && arr[4] == "admin") {
+        if (feature.properties["admin"]) {
             content +=
                 "<tr><th colspan='2' class=text-center>Aksi</th></tr>" +
                 "<tr><th><button class=' btn-block table-action-btn btn-success' onclick='edit_drainase(" +
@@ -211,10 +209,6 @@ function onPopupOpen() {
         });
     });
 }
-
-map.on("overlayadd", function(e) {
-    console.log(e);
-});
 
 var baseMaps = [{
         name: "OpenStreetMap",

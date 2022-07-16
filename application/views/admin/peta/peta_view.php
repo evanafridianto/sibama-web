@@ -42,5 +42,5 @@
 <script src="<?= base_url() ?>assets/leaflet/leaflet-search/leaflet-search.js"></script>
 <link rel="stylesheet" href="<?= base_url() ?>assets/leaflet/leaflet-search/leaflet-search.css" />
 <!-- Data Json  -->
-<script src="<?= site_url('jsoncontroller/data/kecamatan/list') ?>"></script>
+<script src="<?= site_url('JsonController/data/kecamatan/list') ?>"></script>
 <script src="<?= base_url('assets/app/peta.drainase.js') ?>"></script>

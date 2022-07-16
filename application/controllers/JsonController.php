@@ -12,7 +12,7 @@ class JsonController extends CI_Controller
 
 	public function data($layer = 'drainase', $type = 'line', $id = '')
 	{
-		header('Content-Type: application/json');
+		header('Content-Type: application/javascript');
 		$response = [];
 		if ($layer == 'drainase') {
 			// if ($type === 'line') {
@@ -91,7 +91,7 @@ class JsonController extends CI_Controller
 					];
 				$response[] = $data;
 			}
-			if ($type === 'line') {
+			if ($type == 'line') {
 				echo json_encode($response, JSON_PRETTY_PRINT);
 			} else {
 				$fp = fopen('drainase.geojson', 'w');
@@ -155,7 +155,7 @@ class JsonController extends CI_Controller
 				$data['file_geojson'] = $key->file_geojson;
 				$response[] = $data;
 			}
-			if ($type === 'download') {
+			if ($type == 'download') {
 				$fp = fopen('kecamatan.json', 'w');
 				fwrite($fp, json_encode($response, JSON_PRETTY_PRINT));
 				fclose($fp);
@@ -164,7 +164,7 @@ class JsonController extends CI_Controller
 					unlink('kecamatan.json');
 				}
 				force_download('kecamatan.json', $file_content);
-			} else {
+			} else if ($type == 'list') {
 				echo "var dataKecamatan=" . json_encode($response, JSON_PRETTY_PRINT);
 			}
 		}
