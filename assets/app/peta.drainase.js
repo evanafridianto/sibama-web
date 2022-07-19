@@ -40,7 +40,7 @@ for (i = 0; i < dataKecamatan.length; i++) {
                 style: function(feature) {
                     return {
                         color: lineColor(feature),
-                        weight: 4,
+                        weight: 2,
                         opacity: 0.8,
                     };
                 },

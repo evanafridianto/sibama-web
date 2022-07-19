@@ -263,6 +263,7 @@ function edit_drainase(id) {
         type: "GET",
         dataType: "JSON",
         success: function(data) {
+            console.log(data);
             $('[name="id_drainase"]').val(data.id_drainase);
             $('[name="id_jalan"]').val(data.id_jalan);
             $('[name="jalur_jalan"]').val(data.jalur_jalan);
@@ -303,6 +304,7 @@ function edit_drainase(id) {
                     "upload/dimensi/" +
                     data.file_dimensi;
             }
+
             if (data.file_foto == "" || data.file_foto == "-") {
                 foto = $("meta[name=app-url]").attr("content") + "upload/noimage.jpg";
             } else {
@@ -311,6 +313,7 @@ function edit_drainase(id) {
                     "upload/foto/" +
                     data.file_foto;
             }
+
             if (data.file_dimensi) {
                 $("#label-dimensi").text("Ganti Dimensi"); // label dimensi upload
                 $("#dimensi-preview div").html(
@@ -399,6 +402,8 @@ function save() {
             }
             $("#btnSave").text("Simpan"); //change button text
             $("#btnSave").attr("disabled", false); //set button enable
+
+            console.log(data);
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.log(jqXHR);

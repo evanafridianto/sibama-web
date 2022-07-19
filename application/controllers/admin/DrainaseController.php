@@ -66,7 +66,7 @@ class DrainaseController extends CI_Controller
 
     public function save()
     {
-        $config = array(
+        $error = array(
             [
                 'field' => 'id_jalan',
                 'label' => 'Jalan',
@@ -168,7 +168,7 @@ class DrainaseController extends CI_Controller
                 'rules' => 'required|trim'
             ]
         );
-        $this->form_validation->set_rules($config);
+        $this->form_validation->set_rules($error);
 
         $data = array(
             'id_jalan' => $this->input->post('id_jalan'),
@@ -284,31 +284,31 @@ class DrainaseController extends CI_Controller
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
 
-        $style_col = [  // variabel untuk menampung pengaturan style dari header tabel
-            'font' => ['bold' => true],
-            'alignment' => [
-                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
-                'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER
-            ],
-            'borders' => [
-                'top' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                'right' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                'bottom' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                'left' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]
-            ]
-        ];
+        // $style_col = [  // variabel untuk menampung pengaturan style dari header tabel
+        //     'font' => ['bold' => true],
+        //     'alignment' => [
+        //         'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+        //         'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER
+        //     ],
+        //     'borders' => [
+        //         'top' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+        //         'right' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+        //         'bottom' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+        //         'left' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]
+        //     ]
+        // ];
 
-        $style_row = [  // variabel untuk menampung pengaturan style dari isi tabel
-            'alignment' => [
-                'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER
-            ],
-            'borders' => [
-                'top' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                'right' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                'bottom' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                'left' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]
-            ]
-        ];
+        // $style_row = [  // variabel untuk menampung pengaturan style dari isi tabel
+        //     'alignment' => [
+        //         'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER
+        //     ],
+        //     'borders' => [
+        //         'top' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+        //         'right' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+        //         'bottom' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+        //         'left' => ['borderStyle'  => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]
+        //     ]
+        // ];
 
         $sheet->setCellValue('A1', "no");
         $sheet->setCellValue('B1', "id_jalan");
@@ -337,31 +337,31 @@ class DrainaseController extends CI_Controller
         $sheet->setCellValue('Y1', "date");
 
         // Apply style header ke masing-masing kolom header
-        $sheet->getStyle('A1')->applyFromArray($style_col);
-        $sheet->getStyle('B1')->applyFromArray($style_col);
-        $sheet->getStyle('C1')->applyFromArray($style_col);
-        $sheet->getStyle('D1')->applyFromArray($style_col);
-        $sheet->getStyle('E1')->applyFromArray($style_col);
-        $sheet->getStyle('F1')->applyFromArray($style_col);
-        $sheet->getStyle('G1')->applyFromArray($style_col);
-        $sheet->getStyle('H1')->applyFromArray($style_col);
-        $sheet->getStyle('I1')->applyFromArray($style_col);
-        $sheet->getStyle('J1')->applyFromArray($style_col);
-        $sheet->getStyle('K1')->applyFromArray($style_col);
-        $sheet->getStyle('L1')->applyFromArray($style_col);
-        $sheet->getStyle('M1')->applyFromArray($style_col);
-        $sheet->getStyle('N1')->applyFromArray($style_col);
-        $sheet->getStyle('O1')->applyFromArray($style_col);
-        $sheet->getStyle('P1')->applyFromArray($style_col);
-        $sheet->getStyle('Q1')->applyFromArray($style_col);
-        $sheet->getStyle('R1')->applyFromArray($style_col);
-        $sheet->getStyle('S1')->applyFromArray($style_col);
-        $sheet->getStyle('T1')->applyFromArray($style_col);
-        $sheet->getStyle('U1')->applyFromArray($style_col);
-        $sheet->getStyle('V1')->applyFromArray($style_col);
-        $sheet->getStyle('W1')->applyFromArray($style_col);
-        $sheet->getStyle('X1')->applyFromArray($style_col);
-        $sheet->getStyle('Y1')->applyFromArray($style_col);
+        // $sheet->getStyle('A1')->applyFromArray($style_col);
+        // $sheet->getStyle('B1')->applyFromArray($style_col);
+        // $sheet->getStyle('C1')->applyFromArray($style_col);
+        // $sheet->getStyle('D1')->applyFromArray($style_col);
+        // $sheet->getStyle('E1')->applyFromArray($style_col);
+        // $sheet->getStyle('F1')->applyFromArray($style_col);
+        // $sheet->getStyle('G1')->applyFromArray($style_col);
+        // $sheet->getStyle('H1')->applyFromArray($style_col);
+        // $sheet->getStyle('I1')->applyFromArray($style_col);
+        // $sheet->getStyle('J1')->applyFromArray($style_col);
+        // $sheet->getStyle('K1')->applyFromArray($style_col);
+        // $sheet->getStyle('L1')->applyFromArray($style_col);
+        // $sheet->getStyle('M1')->applyFromArray($style_col);
+        // $sheet->getStyle('N1')->applyFromArray($style_col);
+        // $sheet->getStyle('O1')->applyFromArray($style_col);
+        // $sheet->getStyle('P1')->applyFromArray($style_col);
+        // $sheet->getStyle('Q1')->applyFromArray($style_col);
+        // $sheet->getStyle('R1')->applyFromArray($style_col);
+        // $sheet->getStyle('S1')->applyFromArray($style_col);
+        // $sheet->getStyle('T1')->applyFromArray($style_col);
+        // $sheet->getStyle('U1')->applyFromArray($style_col);
+        // $sheet->getStyle('V1')->applyFromArray($style_col);
+        // $sheet->getStyle('W1')->applyFromArray($style_col);
+        // $sheet->getStyle('X1')->applyFromArray($style_col);
+        // $sheet->getStyle('Y1')->applyFromArray($style_col);
 
         $drainase = $this->master->getDrainase()->result(); // data drainase 
         $no = 1;
@@ -394,60 +394,60 @@ class DrainaseController extends CI_Controller
             $sheet->setCellValue('Y' . $numrow, $data->date);
 
             // Apply style row 
-            $sheet->getStyle('A' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('B' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('C' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('D' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('E' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('F' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('G' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('H' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('I' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('J' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('K' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('L' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('M' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('N' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('O' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('P' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('Q' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('R' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('S' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('T' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('U' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('V' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('W' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('X' . $numrow)->applyFromArray($style_row);
-            $sheet->getStyle('Y' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('A' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('B' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('C' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('D' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('E' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('F' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('G' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('H' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('I' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('J' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('K' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('L' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('M' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('N' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('O' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('P' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('Q' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('R' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('S' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('T' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('U' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('V' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('W' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('X' . $numrow)->applyFromArray($style_row);
+            // $sheet->getStyle('Y' . $numrow)->applyFromArray($style_row);
             $no++; // Tambah 1 setiap kali looping
             $numrow++; // Tambah 1 setiap kali looping
         }
         // Set width kolom
-        $sheet->getColumnDimension('A')->setWidth(5);
-        $sheet->getColumnDimension('B')->setWidth(15);
-        $sheet->getColumnDimension('C')->setWidth(15);
-        $sheet->getColumnDimension('D')->setWidth(25);
-        $sheet->getColumnDimension('E')->setWidth(25);
-        $sheet->getColumnDimension('F')->setWidth(25);
-        $sheet->getColumnDimension('G')->setWidth(25);
-        $sheet->getColumnDimension('H')->setWidth(25);
-        $sheet->getColumnDimension('I')->setWidth(25);
-        $sheet->getColumnDimension('J')->setWidth(25);
-        $sheet->getColumnDimension('K')->setWidth(25);
-        $sheet->getColumnDimension('L')->setWidth(25);
-        $sheet->getColumnDimension('M')->setWidth(25);
-        $sheet->getColumnDimension('N')->setWidth(25);
-        $sheet->getColumnDimension('O')->setWidth(30);
-        $sheet->getColumnDimension('P')->setWidth(15);
-        $sheet->getColumnDimension('Q')->setWidth(15);
-        $sheet->getColumnDimension('R')->setWidth(20);
-        $sheet->getColumnDimension('S')->setWidth(20);
-        $sheet->getColumnDimension('T')->setWidth(20);
-        $sheet->getColumnDimension('U')->setWidth(20);
-        $sheet->getColumnDimension('V')->setWidth(25);
-        $sheet->getColumnDimension('W')->setWidth(20);
-        $sheet->getColumnDimension('X')->setWidth(25);
-        $sheet->getColumnDimension('Y')->setWidth(20);
+        // $sheet->getColumnDimension('A')->setWidth(5);
+        // $sheet->getColumnDimension('B')->setWidth(15);
+        // $sheet->getColumnDimension('C')->setWidth(15);
+        // $sheet->getColumnDimension('D')->setWidth(25);
+        // $sheet->getColumnDimension('E')->setWidth(25);
+        // $sheet->getColumnDimension('F')->setWidth(25);
+        // $sheet->getColumnDimension('G')->setWidth(25);
+        // $sheet->getColumnDimension('H')->setWidth(25);
+        // $sheet->getColumnDimension('I')->setWidth(25);
+        // $sheet->getColumnDimension('J')->setWidth(25);
+        // $sheet->getColumnDimension('K')->setWidth(25);
+        // $sheet->getColumnDimension('L')->setWidth(25);
+        // $sheet->getColumnDimension('M')->setWidth(25);
+        // $sheet->getColumnDimension('N')->setWidth(25);
+        // $sheet->getColumnDimension('O')->setWidth(30);
+        // $sheet->getColumnDimension('P')->setWidth(15);
+        // $sheet->getColumnDimension('Q')->setWidth(15);
+        // $sheet->getColumnDimension('R')->setWidth(20);
+        // $sheet->getColumnDimension('S')->setWidth(20);
+        // $sheet->getColumnDimension('T')->setWidth(20);
+        // $sheet->getColumnDimension('U')->setWidth(20);
+        // $sheet->getColumnDimension('V')->setWidth(25);
+        // $sheet->getColumnDimension('W')->setWidth(20);
+        // $sheet->getColumnDimension('X')->setWidth(25);
+        // $sheet->getColumnDimension('Y')->setWidth(20);
 
         $sheet->getDefaultRowDimension()->setRowHeight(-1);
         $sheet->getPageSetup()->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_LANDSCAPE);
@@ -531,34 +531,39 @@ class DrainaseController extends CI_Controller
     {
         if ($for == 'dimensi') {
             $config['upload_path'] = FCPATH . 'upload/dimensi/';
-            $config['allowed_types'] = 'gif|jpg|png';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $config['max_size'] = 24000; //set max size allowed in Kilobyte
             $config['max_width'] = 5000; // set max width image allowed
             $config['max_height'] = 5000; // set max height allowed
             $config['file_name'] = 'file_dimensi_' . round(microtime(true) * 1000);
 
-            $this->load->library('upload', $config);
-            if (!$this->upload->do_upload('file_dimensi')) //upload and validate
+            // $this->load->library('upload', $config);
+            $this->load->library('upload', $config, 'dimensiupload');
+            $this->dimensiupload->initialize($config);
+            if (!$this->dimensiupload->do_upload('file_dimensi')) //upload and validate
             {
-                echo json_encode(array("error" => ["file_dimensi" => $this->upload->display_errors('', '')], "status" => FALSE));
+                echo json_encode(array("error" => ["file_dimensi" => $this->dimensiupload->display_errors('', '')], "status" => FALSE));
                 exit();
             }
-            return $this->upload->data('file_name');
+            // $this->coverupload->data();
+            return $this->dimensiupload->data('file_name');
         } else {
             $config['upload_path'] = FCPATH . 'upload/foto/';
-            $config['allowed_types'] = 'gif|jpg|png';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
             $config['max_size'] = 24000; //set max size allowed in Kilobyte
             $config['max_width'] = 5000; // set max width image allowed
             $config['max_height'] = 5000; // set max height allowed
             $config['file_name'] = 'file_foto_' . round(microtime(true) * 1000);
 
-            $this->load->library('upload', $config);
-            if (!$this->upload->do_upload('file_foto')) //upload and validate
+            // $this->load->library('upload', $config);
+            $this->load->library('upload', $config, 'fotoupload');
+            $this->fotoupload->initialize($config);
+            if (!$this->fotoupload->do_upload('file_foto')) //upload and validate
             {
-                echo json_encode(array("error" => ["file_foto" => $this->upload->display_errors('', '')], "status" => FALSE));
+                echo json_encode(array("error" => ["file_foto" => $this->fotoupload->display_errors('', '')], "status" => FALSE));
                 exit();
             }
-            return $this->upload->data('file_name');
+            return $this->fotoupload->data('file_name');
         }
     }
 
